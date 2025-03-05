@@ -1,0 +1,140 @@
+/* General Styles */
+body {
+    background: #1b1b1b; /* Dark but not black */
+    color: #f4f4f4; /* Light text for contrast */
+    font-family: 'Inter', sans-serif; /* Clean, modern font */
+    margin: 0;
+    padding: 0;
+}
+
+/* Global Heading Styles (Defined only once) */
+h1, h2 {
+    margin: 0;
+    font-weight: bold;
+    color: #ffcb77;
+}
+
+h1 {
+    font-size: 2rem;
+}
+
+h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+/* Header */
+header {
+    background: linear-gradient(to right, #2c3e50, #4ca1af);
+    color: #ffffff;
+    text-align: center;
+    padding: 20px 0;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Navigation */
+nav ul {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0 0;
+}
+
+nav ul li {
+    display: inline;
+    margin: 0 15px;
+}
+
+nav ul li a {
+    color: #ffcb77;
+    text-decoration: none;
+    font-weight: bold;
+    padding: 8px 15px;
+    transition: all 0.3s ease;
+    border-radius: 8px;
+}
+
+nav ul li a:hover {
+    background: #ff6f61;
+    color: #ffffff;
+}
+
+/* Main Content */
+main {
+    text-align: center;
+    padding: 60px 20px;
+    max-width: 900px;
+    margin: auto;
+}
+
+/* Image Styling */
+main img {
+    border-radius: 15px;
+    box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.3);
+}
+
+/* Resizing Images with a Specific Class */
+.resized-image {
+    max-width: 100%;
+    height: auto;
+    width: 480px; /* Adjust to the desired size within tolerance */
+}
+
+/* Footer */
+footer {
+    background: #162447;
+    color: #ffffff;
+    text-align: center;
+    padding: 20px 10px;
+    margin-top: 40px;
+}
+
+footer ul {
+    list-style: none;
+    padding: 0;
+}
+
+footer ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+footer ul li a {
+    color: #ffcb77;
+    text-decoration: none;
+}
+
+footer ul li a:hover {
+    color: #ff6f61;
+}
+
+/* Links */
+a {
+    color: #ffcb77;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #ff6f61;
+    text-decoration: underline;
+}
+
+.contract-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.contract-text {
+    flex: 1;
+    text-align: left;
+}
+
+.contract-image img {
+    max-width: 300px;
+    height: auto;
+    border-radius: 10px;
+}
