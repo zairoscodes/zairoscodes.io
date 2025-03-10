@@ -1,0 +1,131 @@
+/* Unique Cosmic Bagel Theme */
+
+/* General Reset */
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(180deg, #0f172a, #1e293b);
+    color: #f8fafc;
+    text-align: center;
+}
+
+/* Header Styling */
+header {
+    background: linear-gradient(90deg, #4f46e5, #6366f1, #8b5cf6);
+    color: white;
+    text-align: center;
+    padding: 20px;
+    box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+    position: relative;
+}
+
+/* Left Logo Styling */
+header .logo-left {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    width: 160px;
+    height: 160px;
+}
+
+/* Right Logo Styling */
+header .logo-right {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 170px;
+    height: 170px;
+}
+
+header h1 {
+    margin: 0;
+    font-size: 2.5rem;
+    font-weight: bold;
+}
+
+header nav ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+header nav ul li {
+    display: inline;
+}
+
+header nav ul li a {
+    color: #f8fafc;
+    text-decoration: none;
+    font-size: 1.2rem;
+    font-weight: 600;
+    transition: color 0.3s ease-in-out;
+}
+
+header nav ul li a:hover {
+    color: #facc15;
+}
+
+header p {
+    font-style: italic;
+    margin-top: 5px;
+}
+
+/* Main Content */
+main {
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(8px);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(255, 255, 255, 0.1);
+}
+
+h2 {
+    font-size: 2rem;
+    color: #facc15;
+}
+
+p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+}
+
+/* Footer Styling */
+footer {
+    background: linear-gradient(90deg, #4f46e5, #6366f1, #8b5cf6);
+    color: white;
+    padding: 15px;
+    margin-top: 40px;
+    box-shadow: 0 -4px 8px rgba(255, 255, 255, 0.2);
+}
+
+/* Footer Navigation Links */
+footer nav ul {
+    list-style: none;
+    padding: 0;
+    margin-top: 10px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+footer nav ul li {
+    display: inline;
+}
+
+footer nav ul li a {
+    color: #f8fafc;
+    text-decoration: none;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: color 0.3s ease-in-out;
+}
+
+footer nav ul li a:hover {
+    color: #facc15;
+}
