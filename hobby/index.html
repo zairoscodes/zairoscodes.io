@@ -261,40 +261,56 @@
     margin: 0 auto;
 }
 
-/* Remove any blue background affecting sections */
-
-
-/* Ensure "Why Gaming Matters" starts fresh */
-
-
 #why {
     display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 20px;
-    padding: 60px;
-}
-
-.why-images-container {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
-}
-
-.why-images-container img {
-    width: 200px; /* Adjust size */
-    height: auto;
-    border-radius: 5px;
+    flex-direction: column;  /* Stack text box and images vertically */
+    align-items: center;     /* Center everything horizontally */
+    justify-content: center; /* Center everything vertically */
+    text-align: center;      /* Center text inside */
+    min-height: 100vh;       /* Full viewport height */
+    padding: 20px;
 }
 
 .why-text-box {
     background-color: rgba(255, 255, 255, 0.2); /* Add contrast */
-    padding: 20px;
+    padding: 20px; /* More padding for a better look */
     border-radius: 10px;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
-    flex: 1;
     font-size: 20px;
+    width: 60%;  /* Control width */
+    max-width: 800px; /* Prevent from getting too wide */
+    margin: 0 auto; /* Ensure auto margins for centering */
+    display: flex;
+    flex-direction: column; /* Stack text inside properly */
+    justify-content: center; /* Center text inside */
 }
+
+.why-images-container {
+    display: flex;
+    gap: 15px;  /* Space between images */
+    justify-content: center; /* Center images */
+    flex-wrap: wrap; /* Ensures images stay aligned if screen is smaller */
+    margin-top: 20px; /* Space between text and images */
+}
+
+.why-images-container img {
+    width: 300px; /* Adjust size */
+    height: auto;
+    border-radius: 5px;
+}
+
+
+#why figure {
+    text-align: center;
+}
+
+#why figcaption {
+    font-size: 16px;
+    font-style: italic;
+    margin-top: 5px;
+    color: #555;
+}
+
 
 
     </style>
@@ -411,22 +427,31 @@
     </section>
     
     <section id="why">
+        <div class="why-text-box">
+            <h2>Why Gaming Matters</h2>
+            <p>Video games, in my opinion, are the best way to escape from the world. The world we live in is cruel and hateful. It sucks, and we need ways to step back from reality. Video games are one of the best options for that.</p>
+            <p>You can explore different worlds and so many different genres. There are countless ways to play games, and an endless number of games to play. The communities surrounding each game are passionate, and the people in them love what they play. You can find a group that fits you and realize how many different people you can connect with—possibly even forming lifelong friendships.</p>
+            <p>Gaming is a lifestyle that positively impacts almost everyone who plays. There are so many games that evoke emotions you wouldn’t expect from moving images on a screen. You can even make a living from gaming, whether by competing in tournaments, streaming, or making videos for others to enjoy.</p>
+            <p>There are also psychological benefits, such as improved decision-making and sharper reaction times. Gaming is something I hold dear to my heart, and it has changed my life forever, just as it has for many others around the world. I wouldn’t know where I’d be without it.</p>
+        </div>
         <div class="why-images-container">
-            <img src="images/undertale.png" alt="Image 1">
-            <img src="images/event.png" alt="Image 2">
-            <img src="images/love.png" alt="Image 3">
-          </div>
-          <div class="why-text-box">
-        <h2>Why Gaming Matters</h2>
-        <p>Video games, in my opinion, are the best way to escape from the world. The world we live in is cruel and hateful. It sucks, and we need ways to step back from reality. Video games are one of the best options for that.
-
-            <p>  You can explore different worlds and so many different genres. There are countless ways to play games, and an endless number of games to play. The communities surrounding each game are passionate, and the people in them love what they play. You can find a group that fits you and realize how many different people you can connect with—possibly even forming lifelong friendships.</p>
-            
-                <p>  Gaming is a lifestyle that positively impacts almost everyone who plays. There are so many games that evoke emotions you wouldn’t expect from moving images on a screen.  You can even make a living from gaming, whether by competing in tournaments, streaming, or making videos for others to enjoy.</p>
-            
-                    <p>  There are also psychological benefits, such as improved decision-making and sharper reaction times. Gaming is something I hold dear to my heart, and it has changed my life forever, just as it has for many others around the world. I wouldn’t know where I’d be without it.</p>
-                </div>
+            <figure>
+                <img src="images/undertale.png" alt="Image 1">
+                <figcaption> Games immerse us in unforgettable narratives.</figcaption>
+            </figure>
+            <figure>
+                <img src="images/event.png" alt="Image 2">
+                <figcaption> Gaming unites people from all walks of life.</figcaption>
+            </figure>
+            <figure>
+                <img src="images/love.png" alt="Image 3">
+                <figcaption>The love for gaming shapes our experiences.</figcaption>
+            </figure>
+        </div>
     </section>
+    
+    </section>
+    
     <script>
         document.addEventListener("DOMContentLoaded", function () {
             const sections = document.querySelectorAll("section");
