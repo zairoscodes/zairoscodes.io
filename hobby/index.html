@@ -2,14 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=devicwidth, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Video Games: Beyond Reality</title>
     <style>
-        body {
+        
+     
+        
+            body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-        }
+            background-color: #f4f4f4;}
         nav {
             position: fixed;
             top: 0;
@@ -22,12 +25,12 @@
             color: white;
             margin: 0 15px;
             text-decoration: none;
-            font-size: 18px;
+            font-size: 20px; /* Increased font size */
         }
         section {
-            padding: 60px 20px;
+            padding: 80px 20px; /* Increased padding */
             min-height: 100vh;
-            color: white;
+            color: rgb(255, 255, 255);
         }
         #home { background-color: #1e1e2e; }
         #about { 
@@ -36,27 +39,31 @@
             align-items: center;
             justify-content: space-between;
             gap: 20px;
-            padding: 40px;
+            padding: 60px;
         }
         #schedule { background-color: #6272a4; }
-        #locations { background-color: #1a2f7483; color: black; }
-        #how { background-color: #2340a0; color: black; }
-        #why { background-color: #3c2786; }
+        #locations { background-color: rgba(26, 47, 116, 0.5); color: black; }
+        #how { background-color: #0c2b91; color: black; }
+        #why { background-color: #26242c; }
         
         /* About Me Content Box */
         #about .content-box {
             background-color: rgba(255, 255, 255, 0.2);
-            padding: 20px;
-            border-radius: 10px;
-            max-width: 35%;
+            padding: 30px;
+            border-radius: 15px;
+            max-width: 40%;
             flex-shrink: 0;
+            font-size: 22px; /* Increased font size */
+        }
+        #about h2 {
+            font-size: 28px; /* Larger heading */
         }
         #about p {
-            font-size: 24px;
+            font-size: 22px; /* Larger text */
         }
 
-         /* Photo Gallery */
-         .photo-gallery-1 {
+        /* Photo Gallery */
+        .photo-gallery-1 {
             display: flex;
             flex-direction: column;
             align-items: center;
@@ -65,29 +72,240 @@
         }
         .photo-gallery-1 .photos {
             display: flex;
-            gap: 20px;
+            gap: 25px;
             justify-content: center;
         }
         .photo-gallery-1 img {
             width: 100%;
-            max-width: 350px; /* Increased size */
+            max-width: 300px; /* Increased size */
             height: auto;
             border-radius: 20px;
             object-fit: cover;
         }
         .photo-gallery-1 .caption {
-            font-size: 24px; /* Made the caption bigger */
-            font-weight: bold; /* Added bold for better visibility */
+            font-size: 26px; /* Made caption bigger */
+            font-weight: bold;
             margin-top: 15px;
         }
+
+        /* Memories Section */
+        .memories-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 40px; /* Increased spacing */
+            padding: 40px;
+        }
+
+       /* Left Memory Box */
+.memories-content-box-left {
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 30px;
+    border-radius: 55px;
+    width: 40%;
+    text-align: center;
+    font-size: 28px;
+}
+
+/* Right Memory Box */
+.memories-content-box-right {
+    background-color: rgba(0, 0, 0, 0.2);
+    padding: 30px;
+    border-radius: 55px;
+    width: 40%;
+    text-align: center;
+    font-size: 18px;
+}
+        .memories-content-box h2 {
+            font-size: 210px; /* Bigger title */
+        }
+
+        .memories-photos {
+            display: flex;
+            flex-direction: column;
+            gap: 20px;
+            max-width: 40%;
+            align-items: center;
+        }
+
+        .memories-photos img {
+            width: 100%;
+            max-width: 300px; /* Larger images */
+            height: auto;
+            border-radius: 10px;
+        }
+         
+        .memories-gifs {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+    padding: 0 40px;
+}
+
+.memories-gifs img {
+    width: 150px; /* Adjust size as needed */
+    height: auto;
+    border-radius: 10px;
+}
+
+        @media (max-width: 900px) {
+            .memories-container {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .memories-content-box {
+                width: 90%;
+            }
+
+            .memories-photos {
+                max-width: 80%;
+            }
+        }
+
+    
+    
+    
+    
+        .where-to-play-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Full viewport height */
+}
+
+.where-to-play-section {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 160%; /* Adjust width to make it bigger */
+   height: 100%
+}
+        .where-to-play-image-container {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+        }
+        .where-to-play-image-container img {
+            width: 350px;
+            height: 500px;
+            object-fit: cover;
+            border-radius: 8px;
+        }
+        .where-to-play-text-box {
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    background: #fff;
+    margin-top: 20px;
+    width: 80%; /* Increase size */
+    text-align: center;
+    height: 100%;
+    font-size: 30px;
+}
+/* How to Play Section */
+.how-to-play-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 40px;
+    gap: 40px;
+    margin-bottom: 50px; /* Ensure space between sections */
+}
+/* Left Text Box */
+.how-to-play-text-box {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 30px;
+    border-radius: 15px;
+    width: 45%;
+    font-size: 22px;
+    text-align: center;
+}
+
+/* Right Image Container */
+.how-to-play-image-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    max-width: 40%;
+}
+.how-to-play-image-container img {
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+@media (max-width: 900px) {
+    .how-to-play-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .how-to-play-text-box, .how-to-play-image-container {
+        width: 90%;
+    }
+
+    .how-to-play-image-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+/* Ensure section separation */
+#how {
+    width: 100%;
+    padding: 40px 0;
+    margin: 0 auto;
+}
+
+/* Remove any blue background affecting sections */
+
+
+/* Ensure "Why Gaming Matters" starts fresh */
+
+
+#why {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 60px;
+}
+
+.why-images-container {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.why-images-container img {
+    width: 200px; /* Adjust size */
+    height: auto;
+    border-radius: 5px;
+}
+
+.why-text-box {
+    background-color: rgba(255, 255, 255, 0.2); /* Add contrast */
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    flex: 1;
+    font-size: 20px;
+}
+
+
     </style>
+   
 </head>
 <body>
     <nav>
         <a href="#home">Home</a>
         <a href="#about">About</a>
-        <a href="#schedule">Best Times</a>
-        <a href="#locations">Best Locations</a>
+        <a href="#schedule">Memories</a>
+        <a href="#locations">Where</a>
         <a href="#how">How</a>
         <a href="#why">Why</a>
     </nav>
@@ -100,7 +318,7 @@
     <section id="about">
         <div class="content-box">
             <h2>About Me</h2>
-            <p>Hello my name is Christian Beckford, Im 21 and my hobby is playing video games. has been a huge part of my life. It has given me away to exscape from evertyhing around me. It transports you to a whole new world. Ever since 5 I have played video games. Back then when I was 3, I would watch my brother play video games with his friends when they were over. He gave me an unplugged controller to make me think I was playing with them. Thats when my passion all started from.</p>
+            <p>Hello, my name is Christian Beckford. I'm 21, and my hobby is playing video games. It has been a huge part of my life. It has given me a way to escape from everything around me. It transports you to a whole new world. Ever since I was 5, I have played video games. Back when I was 3, I would watch my brother play video games with his friends when they were over. He gave me an unplugged controller to make me think I was playing with them. That’s when my passion all started.</p>
         </div>
         <div class="photo-gallery-1">
             <div class="photos">
@@ -113,23 +331,127 @@
     </section>
 
     <section id="schedule">
-        <h2>Best Memories</h2>
-        <p>I </p>
+        <h2 style="text-align: center; font-size: 34px;">Best Memories</h2>
+        <div class="memories-container">
+            <!-- Left Memory Box -->
+            <div class="memories-content-box-left">
+                <h2>My 200th Solo Fortnite Win</h2>
+                <p>It was season 3 of Fortnite. All of my friends were on the grind trying to get to 200 solo wins first. I was ahead for a little bit around 150, but then I got grounded. I fell behind, and my friends got ahead of me. I didn’t let that stop me. As soon as I got ungrounded, I pushed hard all week to pass them and get it. On June 18, 2018, with an 8-kill win next to Fatal Fields, I won the bet, and the rush of adrenaline was immaculate.</p>
+            </div>
+
+            <!-- Center Photo Gallery -->
+            <div class="memories-photos">
+                <figure>
+                    <img src="images/IMG_7205.JPG" alt="Gaming Memory 1">
+                    <figcaption>My 200th win courtesy of Snapchat</figcaption>
+                </figure>
+                <figure>
+                    <img src="images/7901312370bdc0f755bc6a9979b789e4.jpg" alt="Gaming Memory 2">
+                    <figcaption>The emblem you get for beating it contest mode</figcaption>
+                </figure>
+            </div>
+
+            <!-- Right Memory Box -->
+            <div class="memories-content-box-right">
+                <h2>Destiny 2 Contest Vault of Glass Clutch</h2>
+                <p> It was May 22, 2021. In Destiny 2, when raids first come out, there is a Contest Difficulty mode available only for the first 24 hours. This drastically increases the difficulty. However, if you complete it, you earn a special emblem that is only obtainable during that time. I was with a random group from the UK. I had never played with them before, and I joined them for the last encounter.
+
+                   <p> Since Vault of Glass is a raid from Destiny 1, they make you clear the raid twice, with the second time including special challenges. We were on the final part of the second run for four hours. The event closed at 1 PM, and we only had 15 minutes left. No one died, and we had our best run yet. We pumped out the best damage we had and slayed Atheon, the Time’s Conflux, at 12:58 PM.
+                </p>
+                    
+            <p> Out of my 5,700 hours of Destiny 2, this was my favorite moment ever. It was odd because, after that, I never talked to them again. Everything lined up perfectly in that moment. </p>
+            </div>
+        </div>
+        <div class="memories-gifs">
+            <img src="images/408a38dcd7a86586ac5eb1283e9910e2.gif" alt="Gaming GIF 1">
+            <img src="images/dg7vosj-966e36ee-ed09-46a4-8f41-47642b380724.gif" alt="Gaming GIF 2">
+        </div>
     </section>
     
     <section id="locations">
-        <h2>Best Locations for Gaming</h2>
-        <p>From cozy setups at home to the thrill of gaming cafes, find your ideal spot.</p>
+        <div class="where-to-play-container">
+            <div class="where-to-play-section">
+                <div class="where-to-play-image-container">
+                    <img src="images/unnamed (1).png" alt="Gaming Spot 1">
+                    <img src="images/unnamed.png" alt="Gaming Spot 2">
+                    <img src="images/unnamed4.png" alt="Gaming Spot 1">
+                    <img src="images/unnamed5.png" alt="Gaming Spot 2">
+                    <img src="images/unnamed3.png" alt="Gaming Spot 2">
+                </div>
+                <div class="where-to-play-text-box">
+        <h2> Where do you play video games?</h2>
+        <p> You can play video games anywhere you like. Since there are so many ways to play video games, you can realistically play them from wherever you choose. It could be from your bed, on the side of the Eiffel Tower, or even in space. It’s all about where you feel most comfortable and where it’s most convenient for you to play. Gaming is about being a place you feel free from the world.
+ </p>
+ </div>
     </section>
     
-    <section id="how">
-        <h2>How to Get Started</h2>
-        <p>Jumping into gaming? Here’s what you need to know.</p>
+   
+        <section id="how">
+            <h2 style="text-align: center;">How Do You Start Playing?</h2>
+            <div class="how-to-play-container">
+                <!-- Left Text Box -->
+                <div class="how-to-play-text-box">
+                    <p>There are many ways to start playing video games. An easy way is through your phone. With modern phone technology, you can play many high-quality games. Then, you have other handheld devices like the DS, the Switch, or the Steam Deck—more powerful handheld gaming devices.</p>
+        
+                    <p>If you want something more traditional, there are consoles like the Xbox and PS5. You can even go back to older consoles like the Wii, GameCube, and NES. However, for the most optimal gaming experience, a PC (Personal Computer) is the best choice. A PC gives you the best performance and the ability to play most games from other platforms, though it is usually the most expensive option.</p>
+        
+                    <p>There are so many ways to get into gaming. It’s only a matter of time before you do.</p>
+                </div>
+        
+                <!-- Right Image Grid -->
+                <div class="how-to-play-image-container">
+                    <img src="images/ds.jpg" alt="Gaming Console 1">
+                    <img src="images/Phoenix-Teal-RTX-5090-1-scaled.jpg" alt="Gaming Console 2">
+                    <img src="images/switch.jpg" alt="Handheld Device 1">
+                    <img src="images/ps5.pmg.jfif" alt="Handheld Device 2">
+                    <img src="images/xbox.png" alt="Gaming PC 1">
+                    <img src="images/wii.jpg" alt="Gaming PC 2">
+                </div>
+            </div>
     </section>
     
     <section id="why">
+        <div class="why-images-container">
+            <img src="images/undertale.png" alt="Image 1">
+            <img src="images/event.png" alt="Image 2">
+            <img src="images/love.png" alt="Image 3">
+          </div>
+          <div class="why-text-box">
         <h2>Why Gaming Matters</h2>
-        <p>Discover the benefits of gaming beyond just fun.</p>
+        <p>Video games, in my opinion, are the best way to escape from the world. The world we live in is cruel and hateful. It sucks, and we need ways to step back from reality. Video games are one of the best options for that.
+
+            <p>  You can explore different worlds and so many different genres. There are countless ways to play games, and an endless number of games to play. The communities surrounding each game are passionate, and the people in them love what they play. You can find a group that fits you and realize how many different people you can connect with—possibly even forming lifelong friendships.</p>
+            
+                <p>  Gaming is a lifestyle that positively impacts almost everyone who plays. There are so many games that evoke emotions you wouldn’t expect from moving images on a screen.  You can even make a living from gaming, whether by competing in tournaments, streaming, or making videos for others to enjoy.</p>
+            
+                    <p>  There are also psychological benefits, such as improved decision-making and sharper reaction times. Gaming is something I hold dear to my heart, and it has changed my life forever, just as it has for many others around the world. I wouldn’t know where I’d be without it.</p>
+                </div>
     </section>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const sections = document.querySelectorAll("section");
+            const navLinks = document.querySelectorAll("nav a");
+        
+            function showSection(sectionId) {
+                sections.forEach(section => {
+                    section.style.display = section.id === sectionId ? "block" : "none";
+                });
+            }
+        
+            navLinks.forEach(link => {
+                link.addEventListener("click", function (event) {
+                    event.preventDefault();
+                    const targetSectionId = this.getAttribute("href").substring(1);
+                    showSection(targetSectionId);
+                    history.pushState(null, null, `#${targetSectionId}`); // Updates URL without reloading
+                });
+            });
+        
+            // Show correct section on page load if URL has a hash
+            const initialSection = window.location.hash.substring(1) || sections[0].id;
+            showSection(initialSection);
+        });
+        </script>
 </body>
+
 </html>
