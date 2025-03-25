@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Tables</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>ITIS 3135 - Christian Beckford </h1>
+        <p>Learning HTML Tables</p>
+        <nav>
+            <ul>
+                <li><a href="index.html">Home</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <h2>HTML Tables Assignment</h2>
+
+        <h3>My Tabular Data</h3>
+        <ol>
+            <li>John Doe - johndoe@gmail.com - 5 years</li>
+            <li>Jane Smith - janesmith@yahoo.com - 12 years</li>
+            <li>Tom Brown - tombrown@company.com - 8 years</li>
+            <li>Alice White - alicew@business.org - 2 years</li>
+            <li>Steve Johnson - stevej@enterprise.com - 6 years</li>
+            <li>Emily Davis - emilyd@gmail.com - 15 years</li>
+            <li>Chris Taylor - christaylor@workplace.com - 10 years</li>
+        </ol>
+
+        <h3>Employee Data in Simple Table</h3>
+        <table>
+            <tr>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Years of Service</th>
+            </tr>
+            <tr>
+                <td>John Doe</td>
+                <td>johndoe@gmail.com</td>
+                <td>5</td>
+            </tr>
+            <tr>
+                <td>Jane Smith</td>
+                <td>janesmith@yahoo.com</td>
+                <td>12</td>
+            </tr>
+            <!-- Add rows for other employees -->
+        </table>
+
+        <h3>Employee Data in Complex Table</h3>
+        <figure>
+            <figcaption>Employee Information</figcaption>
+            <table>
+                <tr>
+                    <th>Category</th>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Years of Service</th>
+                    <th>Monthly Salary</th>
+                </tr>
+                <tr>
+                    <td rowspan="2">Marketing</td>
+                    <td>John Doe</td>
+                    <td>johndoe@gmail.com</td>
+                    <td>5</td>
+                    <td>$4,000</td>
+                </tr>
+                <tr>
+                    <td>Jane Smith</td>
+                    <td>janesmith@yahoo.com</td>
+                    <td>12</td>
+                    <td>$5,500</td>
+                </tr>
+                <!-- Additional rows -->
+                <tr>
+                    <th colspan="3">Total Years of Service</th>
+                    <td>58</td>
+                    <td>$40,000</td>
+                </tr>
+            </table>
+        </figure>
+    </main>
+    <footer>
+        <p>© 2025 Your Name</p>
+        <nav>
+            <ul>
+                <li><a href="validator.html">HTML Validation</a></li>
+                <li><a href="css-validator.html">CSS Validation</a></li>
+            </ul>
+        </nav>
+    </footer>
+</body>
+</html>
+
