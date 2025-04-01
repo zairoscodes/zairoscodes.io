@@ -1,0 +1,124 @@
+<<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BYO Intro</title>
+</head>
+<body>
+    <header id="header"></header>
+
+    <h2>Build Your Own Introduction</h2>
+    <h3>Time to BYO Intro page, please fill out the form below so we can create your own page.</h3>
+
+    <form id="introForm">
+        <label for="name">Name:</label>
+        <input type="text" id="name" required><br>
+
+        <label for="mascot">Mascot:</label>
+        <input type="text" id="mascot" required><br>
+
+        <label for="image">Image:</label>
+        <input type="file" id="image" accept="image/png, image/jpeg" required><br>
+
+        <label for="caption">Image Caption:</label>
+        <input type="text" id="caption" required><br>
+
+        <label for="personalBg">Personal Background:</label>
+        <input type="text" id="personalBg" required><br>
+
+        <label for="professionalBg">Professional Background:</label>
+        <input type="text" id="professionalBg" required><br>
+
+        <label for="academicBg">Academic Background:</label>
+        <input type="text" id="academicBg" required><br>
+
+        <label for="webDevBg">Background in Web Development:</label>
+        <input type="text" id="webDevBg" required><br>
+
+        <label for="platform">Primary Computer Platform:</label>
+        <input type="text" id="platform" required><br>
+
+        <div id="courses">
+            <label>Courses Currently Taking:</label>
+            <button type="button" onclick="addCourse()">Add Course</button>
+        </div>
+
+        <label for="funnyThing">Funny Thing:</label>
+        <input type="text" id="funnyThing"><br>
+
+        <label for="anythingElse">Anything Else:</label>
+        <input type="text" id="anythingElse"><br>
+
+        <input type="checkbox" id="agree" required>
+        <label for="agree">I understand that what is on this page is not password protected and I will not put anything here that I don’t want publicly available.</label><br>
+
+        <input type="submit" value="Submit">
+        <input type="reset" value="Reset">
+    </form>
+
+    <footer id="footer"></footer>
+
+    <script>
+        document.getElementById("introForm").addEventListener("submit", function(event) {
+            event.preventDefault(); // Prevent form submission
+
+            let name = document.getElementById("name").value;
+            let mascot = document.getElementById("mascot").value;
+            let caption = document.getElementById("caption").value;
+            let personalBg = document.getElementById("personalBg").value;
+            let professionalBg = document.getElementById("professionalBg").value;
+            let academicBg = document.getElementById("academicBg").value;
+            let webDevBg = document.getElementById("webDevBg").value;
+            let platform = document.getElementById("platform").value;
+            let funnyThing = document.getElementById("funnyThing").value;
+            let anythingElse = document.getElementById("anythingElse").value;
+
+            if (!name || !mascot || !caption || !personalBg || !professionalBg || !academicBg || !webDevBg || !platform) {
+                alert("Please fill in all required fields.");
+                return;
+            }
+
+            let courses = [];
+            document.querySelectorAll(".course").forEach(input => {
+                courses.push(input.value);
+            });
+
+            document.body.innerHTML = `
+                <h2>Your Introduction Page</h2>
+                <p><strong>Name:</strong> ${name}</p>
+                <p><strong>Mascot:</strong> ${mascot}</p>
+                <p><strong>Image Caption:</strong> ${caption}</p>
+                <p><strong>Personal Background:</strong> ${personalBg}</p>
+                <p><strong>Professional Background:</strong> ${professionalBg}</p>
+                <p><strong>Academic Background:</strong> ${academicBg}</p>
+                <p><strong>Background in Web Development:</strong> ${webDevBg}</p>
+                <p><strong>Primary Computer Platform:</strong> ${platform}</p>
+                <p><strong>Courses Currently Taking:</strong> ${courses.join(", ")}</p>
+                <p><strong>Funny Thing:</strong> ${funnyThing}</p>
+                <p><strong>Anything Else:</strong> ${anythingElse}</p>
+                <button onclick="location.reload()">Reset</button>
+            `;
+        });
+
+        function addCourse() {
+            let div = document.createElement("div");
+            let input = document.createElement("input");
+            input.type = "text";
+            input.className = "course";
+            input.placeholder = "Enter a course";
+
+            let removeBtn = document.createElement("button");
+            removeBtn.textContent = "Remove";
+            removeBtn.type = "button";
+            removeBtn.onclick = function() {
+                div.remove();
+            };
+
+            div.appendChild(input);
+            div.appendChild(removeBtn);
+            document.getElementById("courses").appendChild(div);
+        }
+    </script>
+</body>
+</html>
