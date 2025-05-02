@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>My Name Slideshow Gallery</title>
+  
+  <link rel="stylesheet" href="default.css">
+  
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+ 
+  <script src="scripts/HTMLInclude.min.js"></script>
+  
+  <style>
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background: #f4f4f4;
+      color: #333;
+      line-height: 1.6;
+    }
+    header, footer {
+      background: #333;
+      color: #fff;
+      text-align: center;
+      padding: 15px 0;
+    }
+    h1 {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 2.5em;
+      color: #222;
+    }
+    p {
+      text-align: center;
+      max-width: 800px;
+      margin: 10px auto;
+    }
+    .container {
+      width: 90%;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+    .slideshow-container {
+      position: relative;
+      margin: 20px auto;
+      width: 100%;
+      max-width: 900px;
+      background: #fff;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      border-radius: 5px;
+      overflow: hidden;
+    }
+    .slideshow-container img {
+      width: 100%;
+      display: block;
+    }
+    .numbertext {
+      position: absolute;
+      top: 8px;
+      left: 16px;
+      background-color: rgba(0, 0, 0, 0.6);
+      color: #fff;
+      padding: 6px 10px;
+      font-size: 14px;
+      border-radius: 3px;
+    }
+    .caption {
+      text-align: center;
+      padding: 10px;
+      font-size: 20px;
+      background: #fff;
+      color: #555;
+    }
+    .thumbnails {
+      text-align: center;
+      margin: 20px auto;
+    }
+    .thumbnails ul {
+      list-style: none;
+      padding: 0;
+      margin: 0 auto;
+      display: inline-block;
+    }
+    .thumbnails li {
+      display: inline-block;
+      margin: 5px;
+      cursor: pointer;
+      transition: transform 0.3s, border-color 0.3s;
+    }
+    .thumbnails img {
+      width: 100px;
+      height: auto;
+      border: 2px solid #ddd;
+      border-radius: 4px;
+    }
+    .thumbnails li:hover img {
+      transform: scale(1.05);
+    }
+    .thumbnails .active img {
+      border-color: #333;
+      transform: scale(1.1);
+    }
+    #notes {
+      width: 100%;
+      max-width: 900px;
+      margin: 20px auto;
+      padding: 15px;
+      background: #fff;
+      border-radius: 5px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+      font-size: 0.95em;
+    }
+    #notes h2, #notes h3 {
+      color: #333;
+    }
+    #notes ul {
+      list-style-type: disc;
+      margin-left: 20px;
+    }
+  </style>
+</head>
+<body>
+  <!-- Dynamic header include using HTMLInclude.min.js -->
+  <div w3-include-html="header.html"></div>
+  
+  <div class="container">
+    <h1>My Name Slideshow Gallery</h1>
+    <p>This gallery displays images representing each letter of my full name: <strong>CHRISTIAN</strong>.</p>
+    
+    <!-- Main slideshow area -->
+    <div class="slideshow-container">
+      <div class="numbertext" id="slideNumber">1 / 9</div>
+      <img id="slideImage" src="images/cityscape.jpg" alt="C - Cityscape">
+      <div class="caption" id="slideCaption">C - Cityscape</div>
+    </div>
+    
+    <!-- Thumbnail navigation -->
+    <div class="thumbnails">
+      <ul>
+        <li data-image="images/cityscape.png" data-caption="C - Cityscape" data-index="1" class="active">
+          <img src="images/cityscape_ thumb.png" alt="Thumbnail C">
+        </li>
+        <li data-image="images/house.png" data-caption="H - House" data-index="2">
+          <img src="images/house_thumb.png" alt="Thumbnail H">
+        </li>
+        <li data-image="images/river.png" data-caption="R - River" data-index="3">
+          <img src="images/river_thumb.png" alt="Thumbnail R">
+        </li>
+        <li data-image="images/island.png" data-caption="I - Island" data-index="4">
+          <img src="images/island_thumb.png" alt="Thumbnail I">
+        </li>
+        <li data-image="images/sunset.png" data-caption="S - Sunset" data-index="5">
+          <img src="images/sunset_thumb.png" alt="Thumbnail S">
+        </li>
+        <li data-image="images/LITTLE MAGICAIN.png" data-caption="T - The Little Magician (I drew this one)" data-index="6">
+          <img src="images/LITTLE MAGICAIN _thumb.png" alt="Thumbnail T">
+        </li>
+        <li data-image="images/iceburg.png" data-caption="I - Iceberg" data-index="7">
+          <img src="images/iceburg_thumb.png" alt="Thumbnail I (Iceberg)">
+        </li>
+        <li data-image="images/arch.png" data-caption="A - Arch" data-index="8">
+          <img src="images/arch_thumb.png" alt="Thumbnail A">
+        </li>
+        <li data-image="images/night.png" data-caption="N - Night" data-index="9">
+          <img src="images/night_thumb.png" alt="Thumbnail N">
+        </li>
+      </ul>
+    </div>
+    
+    <!-- Dynamic footer include using HTMLInclude.min.js -->
+    <div w3-include-html="footer.html"></div>
+    
+    <!-- Notes Section -->
+    <div id="notes">
+      <h2>Notes</h2>
+      <ul>
+        <li><strong>Help Received:</strong> Followed the slideshow tutorial from <a href="https://www.w3schools.com" target="_blank">w3schools</a>.</li>
+        <li><strong>People:</strong> No individual assistance was utilized.</li>
+        <li><strong>Other:</strong> Implemented dynamic header/footer includes using HTMLInclude.min.js and enhanced jQuery transitions.</li>
+        <li><strong>Challenges:</strong> Making smooth fade transitions and ensuring the main image enlarges correctly above the thumbnails AND FOR SOME REASON my dynamic headers and footers a bit messed up.</li>
+        <li>I confirm that this slideshow is my own work and I did not copy someone else’s code.</li>
+      </ul>
+      <p><strong>Signature:</strong> Christian – Date: 01 May 2025, 20:50 EST</p>
+      <h3>AI Generated Photo Prompts</h3>
+      <ul>
+        <li><strong>Cityscape:</strong> "A panoramic view of a bustling cityscape at dusk in landscape orientation."</li>
+        <li><strong>House:</strong> "A charming house captured in a warm, inviting suburban setting in landscape format."</li>
+        <li><strong>River:</strong> "A gently flowing river winds through a pristine natural setting, its calm waters reflecting the surrounding greenery and open sky. The scene is captured in a clear, wide landscape shot, showcasing lush trees, vibrant foliage, and softly rolling terrain that frame the river’s tranquil path. The overall mood is peaceful and refreshing, inviting viewers to appreciate the serene beauty of the natural world."</li>
+        <li><strong>Island:</strong> "A peaceful island lies cradled by sparkling turquoise waters, its soft sandy shores kissed by gentle waves. Tall palm trees sway in the warm breeze beneath a bright blue sky dotted with fluffy clouds. The horizon blends seamlessly where sea meets sky, creating a calm, endless expanse of blue. The air carries the fresh scent of salt and tropical blooms, inviting quiet and tranquility."</li>
+        <li><strong>Sunset:</strong> "The sky blazes with vibrant hues of fiery orange, deep magenta, and soft purple as the sun dips below the horizon. Wisps of clouds catch the fading light, glowing like brushstrokes across the vast landscape. The calm earth below is bathed in a warm, golden glow, creating a breathtaking scene that feels both peaceful and alive."</li>
+        <li><strong>Iceberg:</strong> "A majestic iceberg drifts silently across the deep blue ocean, its towering white peaks contrasting sharply with the rich, sapphire waters below. The iceberg’s icy surface glistens under soft sunlight, casting subtle reflections on the calm sea. The vast landscape stretches wide in a panoramic view, capturing the serene power and pristine beauty of this frozen giant against the endless horizon."</li>
+        <li><strong>Arch:</strong> "A striking natural stone arch rises boldly against a vast, open landscape, its rugged curves sculpted by time and elements. Framed by expansive skies and distant hills, the arch stands as a majestic gateway carved from ancient rock. Soft sunlight casts shadows that highlight the texture and grandeur of the formation, creating a powerful contrast between the stone’s warm tones and the surrounding natural beauty."</li>
+        <li><strong>Night:</strong> "A vast landscape lies bathed in soft moonlight beneath a dazzling canopy of stars. The night sky sparkles with countless twinkling lights, stretching endlessly above rolling hills and quiet fields. The serene darkness is punctuated by the gentle glow of constellations, creating a peaceful, awe-inspiring scene that invites quiet reflection under the cosmos."</li>
+      </ul>
+    </div>
+  </div> <!-- End of Container -->
+  
+  <!-- Extra Footer Snippet at the very bottom of the site -->
+  <footer id="extraFooter">
+    <ul>
+      <a href="/">CLT Web</a>
+      <a href="https://github.com/zairoscodes">GitHub</a>
+      <a href="https://github.com/zairoscodes/zairoscodes.io">GitHub.io Page</a>
+      <a href="https://www.freecodecamp.org/ChristianBCodes">FreeCodeCamp</a>
+      <a href="https://www.codecademy.com/profiles/Christianb.CODES">Codecademy</a>
+      <a href="https://www.linkedin.com/in/christian-beckford/">LinkedIn</a>
+      <a href="https://validator.w3.org/check?uri=referer" id="validation_link_html">
+        <img style="border:0;width:88px;height:31px" src="https://mytienhoang.github.io/itis3135/z_archives/">
+      </a>
+      <a href="https://jigsaw.w3.org/css-validator/check/referer" id="validation_link_css">
+        <img style="border:0;width:88px;height:31px" src="https://jigsaw.w3.org/css-validator/images/vcss">
+      </a>
+    </ul>
+    <p><a href="BeckfordInnovations.html"> @ Beckford Innovation 2025</a></p>
+  </footer>
+  
+  <script>
+    includeHTML();
+  </script>
+  
+  <script>
+    $(document).ready(function() {
+      $(".thumbnails li").click(function() {
+        $(".thumbnails li").removeClass("active");
+        $(this).addClass("active");
+        let newImage = $(this).data("image");
+        let newCaption = $(this).data("caption");
+        let newIndex = $(this).data("index");
+        let totalSlides = $(".thumbnails li").length;
+        $("#slideImage, #slideCaption, #slideNumber").fadeOut(300, function() {
+          $("#slideImage").attr("src", newImage);
+          $("#slideCaption").text(newCaption);
+          $("#slideNumber").text(newIndex + " / " + totalSlides);
+          $("#slideImage, #slideCaption, #slideNumber").fadeIn(300);
+        });
+      });
+    });
+  </script>
+</body>
+</html>
