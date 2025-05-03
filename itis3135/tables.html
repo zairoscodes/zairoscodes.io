@@ -1,100 +1,155 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Employee Tables</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Activity #2 - HTML Tables</title>
+ 
+  <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
+  
+  <style>
+ 
+    body {
+      font-family: sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    header, footer {
+      background: #f4f4f4;
+      padding: 1em;
+    }
+    header nav ul, footer nav ul {
+      list-style-type: none;
+      padding: 0;
+    }
+    header nav ul li, footer nav ul li {
+      display: inline;
+      margin-right: 1em;
+    }
+
+    /* Table styling */
+    table {
+      border-collapse: collapse;
+      width: 100%;
+      margin-bottom: 2em;
+    }
+    th, td {
+      border: 1px solid #000;
+      padding: 8px;
+      text-align: left;
+    }
+    thead th {
+      background-color: #ccc;
+    }
+    tbody tr:nth-child(even) {
+      background-color: #eee;
+    }
+    tbody tr:nth-child(odd) {
+      background-color: #fff;
+    }
+  </style>
 </head>
 <body>
-    <header>
-        <h1>ITIS 3135 - Christian Beckford </h1>
-        <p>Learning HTML Tables</p>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-            </ul>
-        </nav>
-    </header>
-    <main>
-        <h2>HTML Tables Assignment</h2>
+  <!-- Standard Header -->
+  <header>
+    <h1>ITIS 3135 - Christian Beckford</h1>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        
+      </ul>
+    </nav>
+  </header>
 
-        <h3>My Tabular Data</h3>
-        <ol>
-            <li>John Doe - johndoe@gmail.com - 5 years</li>
-            <li>Jane Smith - janesmith@yahoo.com - 12 years</li>
-            <li>Tom Brown - tombrown@company.com - 8 years</li>
-            <li>Alice White - alicew@business.org - 2 years</li>
-            <li>Steve Johnson - stevej@enterprise.com - 6 years</li>
-            <li>Emily Davis - emilyd@gmail.com - 15 years</li>
-            <li>Chris Taylor - christaylor@workplace.com - 10 years</li>
-        </ol>
+  <!-- Main Content for Activity #2 -->
+  <main>
+    <h2>Activity #2 - HTML Tables</h2>
 
-        <h3>Employee Data in Simple Table</h3>
-        <table>
-            <tr>
-                <th>Name</th>
-                <th>Email</th>
-                <th>Years of Service</th>
-            </tr>
-            <tr>
-                <td>John Doe</td>
-                <td>johndoe@gmail.com</td>
-                <td>5</td>
-            </tr>
-            <tr>
-                <td>Jane Smith</td>
-                <td>janesmith@yahoo.com</td>
-                <td>12</td>
-            </tr>
-            <!-- Add rows for other employees -->
-        </table>
+    <!-- Part 3: Tabular Data as an Ordered List -->
+    <h3>My Tabular Data</h3>
+    <ol>
+      <li>Employee 1 — employee1@example.com — 1 year</li>
+      <li>Employee 2 — employee2@example.com — 2 years</li>
+      <li>Employee 3 — employee3@example.com — 3 years</li>
+      <li>Employee 4 — employee4@example.com — 4 years</li>
+      <li>Employee 5 — employee5@example.com — 5 years</li>
+      <li>Employee 6 — employee6@example.com — 6 years</li>
+      <li>Employee 7 — employee7@example.com — 7 years</li>
+    </ol>
 
-        <h3>Employee Data in Complex Table</h3>
-        <figure>
-            <figcaption>Employee Information</figcaption>
-            <table>
-                <tr>
-                    <th>Category</th>
-                    <th>Name</th>
-                    <th>Email</th>
-                    <th>Years of Service</th>
-                    <th>Monthly Salary</th>
-                </tr>
-                <tr>
-                    <td rowspan="2">Marketing</td>
-                    <td>John Doe</td>
-                    <td>johndoe@gmail.com</td>
-                    <td>5</td>
-                    <td>$4,000</td>
-                </tr>
-                <tr>
-                    <td>Jane Smith</td>
-                    <td>janesmith@yahoo.com</td>
-                    <td>12</td>
-                    <td>$5,500</td>
-                </tr>
-                <!-- Additional rows -->
-                <tr>
-                    <th colspan="3">Total Years of Service</th>
-                    <td>58</td>
-                    <td>$40,000</td>
-                </tr>
-            </table>
-        </figure>
-    </main>
-    <footer>
-        <p>© 2025 Your Name</p>
-        <nav>
-            <ul>
-                <li><a href="validator.html">HTML Validation</a></li>
-                <li><a href="css-validator.html">CSS Validation</a></li>
-            </ul> <a href="firm.html">Beckford Innovation</a>
-            <a href="http://webpages.uncc.edu/yourid/itis3135" target="_blank">CLT webpage</a>  
-<a href="http://yourgithubid.github.io/itis3135" target="_blank">GitHub</a>
+    <!-- Part 3: Employee Data in Simple Table -->
+    <h3>Employee Data in Simple Table</h3>
+    <table>
+      <thead>
+        <tr>
+          <th scope="col">Name</th>
+          <th scope="col">Email</th>
+          <th scope="col">Years of Service</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Employee 1</td>
+          <td>employee1@example.com</td>
+          <td>1</td>
+        </tr>
+        <tr>
+          <td>Employee 2</td>
+          <td>employee2@example.com</td>
+          <td>2</td>
+        </tr>
+        <tr>
+          <td>Employee 3</td>
+          <td>employee3@example.com</td>
+          <td>3</td>
+        </tr>
+        <tr>
+          <td>Employee 4</td>
+          <td>employee4@example.com</td>
+          <td>4</td>
+        </tr>
+        <tr>
+          <td>Employee 5</td>
+          <td>employee5@example.com</td>
+          <td>5</td>
+        </tr>
+        <tr>
+          <td>Employee 6</td>
+          <td>employee6@example.com</td>
+          <td>6</td>
+        </tr>
+        <tr>
+          <td>Employee 7</td>
+          <td>employee7@example.com</td>
+          <td>7</td>
+        </tr>
+      </tbody>
+    </table>
+  </main>
 
-        </nav>
-    </footer>
+  <footer>
+    <p>&copy; 2025 Christian Beckford</p>
+    <nav>
+      <ul>
+        <li><a href="/">CLT Web</a></li>
+        <li><a href="https://github.com/zairoscodes">GitHub</a></li>
+        <li><a href="https://github.com/zairoscodes/zairoscodes.io">GitHub.io Page</a></li>
+        <li><a href="https://www.freecodecamp.org/ChristianBCodes">FreeCodeCamp</a></li>
+        <li><a href="https://www.codecademy.com/profiles/Christianb.CODES">Codecademy</a></li>
+        <li><a href="https://www.linkedin.com/in/christian-beckford/">LinkedIn</a></li>
+        <li>
+          <a href="https://validator.w3.org/check?uri=referer" id="validation_link_html">
+            <img style="border:0;width:88px;height:31px" src="https://mytienhoang.github.io/itis3135/z_archives/" alt="HTML Validation">
+          </a>
+        </li>
+        <li>
+          <a href="https://jigsaw.w3.org/css-validator/check/referer" id="validation_link_css">
+            <img style="border:0;width:88px;height:31px" src="https://jigsaw.w3.org/css-validator/images/vcss" alt="CSS Validation">
+          </a>
+        </li>
+      </ul>
+    </nav>
+  </footer>
+  
 </body>
 </html>
-
