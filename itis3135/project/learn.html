@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ONE CODE - Learn</title>
+  <link rel="stylesheet" href="styles/styles.css">
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <style>
+    body {
+      font-family: 'Treasure Map Deadhand', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to bottom, #fef3e2, #fff);
+      color: #2e2e2e;
+    }
+    .hero-learn {
+      background: url('images/treasure-map-bg.jpg') no-repeat center center/cover;
+      height: 50vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      margin-bottom: 30px;
+    }
+    .hero-learn::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.5);
+    }
+    .hero-learn .hero-content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      color: #fff;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+    }
+    .hero-learn h2 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+      font-family: 'Pirata One', cursive;
+    }
+    .hero-learn p {
+      font-size: 1.5rem;
+    }
+    /* NEW: Container for two-column layout */
+    .lesson-container {
+      display: flex;
+      gap: 30px;
+      max-width: 1200px;
+      margin: 0 auto 40px;
+      align-items: flex-start;
+    }
+    .lesson-content {
+      flex: 2;
+    }
+    .photo-sidebar {
+      flex: 1;
+      background: #fff;
+      border: 2px solid #ffcc00;
+      border-radius: 10px;
+      padding: 15px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    .photo-sidebar h3 {
+      color: #004080;
+      font-family: 'Pirata One', cursive;
+      margin-bottom: 15px;
+      text-align: center;
+    }
+    .photo-slot {
+      margin-bottom: 15px;
+      text-align: center;
+    }
+    .photo-slot img {
+      width: 100%;
+      max-width: 150px;
+      border-radius: 8px;
+      display: block;
+      margin: 0 auto;
+    }
+    .photo-slot figcaption {
+      font-size: 0.9rem;
+      color: #2e2e2e;
+      margin-top: 5px;
+    }
+    #tabs {
+      background: #fef3e2;
+      border: 2px solid #ffcc00;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    #tabs ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+    }
+    #tabs ul li a {
+      font-weight: bold;
+      font-size: 1.1rem;
+      color: #004080;
+      padding: 5px 10px;
+    }
+    #tabs ul li a:hover {
+      transform: scale(1.05);
+      transition: transform 0.3s ease;
+    }
+    #tabs div {
+      font-size: 1.1rem;
+      line-height: 1.6;
+      padding: 20px;
+      background: #fff;
+      border-radius: 8px;
+      margin-top: 10px;
+    }
+    .live-playground {
+      margin: 20px auto;
+      max-width: 900px;
+      padding: 20px;
+      background: #fff;
+      border: 2px solid #ffcc00;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    .live-playground h3 {
+      font-family: 'Pirata One', cursive;
+      font-size: 1.8rem;
+      margin-bottom: 10px;
+    }
+    #editor {
+      height: 200px;
+      width: 100%;
+      border: 1px solid #ccc;
+    }
+    #runBtn {
+      margin-top: 10px;
+      background: #ff9900;
+      color: #fff;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+    #runBtn:hover {
+      background: #cc7a00;
+    }
+    #output {
+      background: #f4f4f4;
+      padding: 10px;
+      margin-top: 10px;
+      border-radius: 5px;
+    }
+    footer {
+      background: #000;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+    .resources {
+      margin-top: 20px;
+      padding-top: 10px;
+      border-top: 1px solid #ccc;
+    }
+    .resources h4 {
+      margin-bottom: 10px;
+      color: #004080;
+    }
+    .resources ul {
+      list-style: circle;
+      padding-left: 20px;
+    }
+    .resources ul li a {
+      color: #ff9900 !important;
+      text-decoration: none !important;
+      background: transparent !important;
+    }
+    .resources ul li a:hover {
+      text-decoration: underline !important;
+    }
+    /* Override jQuery UI default tab styles */
+    #tabs .ui-tabs-nav, #tabs .ui-tabs-nav li, #tabs .ui-tabs-nav li a {
+      background: transparent !important;
+      border: none !important;
+      color: #004080 !important;
+      text-decoration: none !important;
+    }
+    #tabs .ui-tabs-nav li.ui-tabs-active a {
+      background: #ffcc00 !important;
+      color: #000 !important;
+      border-radius: 5px;
+    }
+    @media(max-width: 768px) {
+      .lesson-container {
+         flex-direction: column;
+      }
+      .photo-sidebar {
+         margin-top: 20px;
+      }
+
+    }
+   
+
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <h1>ONE CODE</h1>
+      <p>Navigate the treasure map of coding</p>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="learn.html" class="active">Learn</a></li>
+        <li><a href="challenges.html">Challenges</a></li>
+        <li><a href="gallery.html">Student Gallery</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  <section class="hero-learn">
+    <div class="hero-content">
+      <h2>Chart Your Course</h2>
+      <p>Unearth the secrets of HTML, CSS, and JavaScript on your treasure map</p>
+    </div>
+  </section>
+  <main>
+    <section id="lessons">
+      <div class="lesson-container">
+        <div class="lesson-content">
+          <div id="tabs">
+            <ul>
+              <li><a href="#html">HTML</a></li>
+              <li><a href="#css">CSS</a></li>
+              <li><a href="#javascript">JavaScript</a></li>
+            </ul>
+            <div id="html">
+              <h2>HTML Lessons</h2>
+              <p>
+                HTML (HyperText Markup Language) is the bedrock of your digital treasure map. It provides the structural framework for your web pages—much like the intricate details on an ancient map that guide adventurers to hidden riches. Without HTML, your content would be adrift without direction.
+              </p>
+              <p>
+                Master the art of crafting well-organized pages by learning essential elements such as headings, paragraphs, images, links, and lists. Understand the importance of document structure—including the declaration <code>&lt;!DOCTYPE html&gt;</code> and the hierarchy established by the <code>&lt;html&gt;</code>, <code>&lt;head&gt;</code>, and <code>&lt;body&gt;</code> tags. With a solid grasp of HTML, every treasure hunt begins with a clear, reliable map.
+              </p>
+              <ul>
+                <li>HTML Elements &amp; Tags</li>
+                <li>Attributes and Proper Nesting</li>
+                <li>Document Structure and <code>&lt;!DOCTYPE html&gt;</code></li>
+              </ul>
+              <div class="resources">
+                <h4>Further Diving into HTML:</h4>
+                <ul>
+                  <li><a href="https://www.w3schools.com/html/html_basic.asp" target="_blank">W3Schools HTML Tutorial</a></li>
+                  <li><a href="https://www.freecodecamp.org/news/html-basics-for-beginners/" target="_blank">freeCodeCamp: HTML Basics</a></li>
+                  <li><a href="https://developer.mozilla.org/en-US/docs/Web/HTML" target="_blank">MDN: HTML Documentation</a></li>
+                </ul>
+              </div>
+            </div>
+            <div id="css">
+              <h2>CSS Lessons</h2>
+              <p>
+                CSS (Cascading Style Sheets) is the vibrant crew that gives your digital treasure map its character and visual appeal. It transforms a basic layout into a beautifully designed adventure, enhancing every element with color, style, and movement.
+              </p>
+              <p>
+                Dive into the world of CSS to learn how to control the look and feel of your website. Study selectors, properties, and values to make your site engaging. Understand the box model to manage spacing, and explore responsive design so your pages adapt like a seasoned sailor on unpredictable seas.
+              </p>
+              <ul>
+                <li>Selectors, Properties, and Values</li>
+                <li>The Box Model and Layout Techniques</li>
+                <li>Responsive Design and Animations</li>
+              </ul>
+              <div class="resources">
+                <h4>Further Diving into CSS:</h4>
+                <ul>
+                  <li><a href="https://www.w3schools.com/css/" target="_blank">W3Schools CSS Tutorial</a></li>
+                  <li><a href="https://www.freecodecamp.org/news/get-started-with-css-in-5-minutes-e0804813fc3e/" target="_blank">freeCodeCamp: Learn CSS Fast</a></li>
+                  <li><a href="https://developer.mozilla.org/en-US/docs/Web/CSS" target="_blank">MDN: CSS Documentation</a></li>
+                </ul>
+              </div>
+            </div>
+            <div id="javascript">
+              <h2>JavaScript Lessons</h2>
+              <p>
+                JavaScript is the mighty wind that fills your ship's sails, infusing life into your digital treasure map. It lets you respond to user actions and dynamically control your page, ensuring every interaction feels as thrilling as a daring voyage.
+              </p>
+              <p>
+                Begin with the fundamentals—explore variables, data types, functions, and control structures that form the core language. Learn how to manipulate the DOM to alter content and styles as users interact with your site. With mastery over event handling and debugging techniques, you'll be well-equipped to navigate the most treacherous coding challenges.
+              </p>
+              <ul>
+                <li>Variables, Data Types, and Functions</li>
+                <li>DOM Manipulation and Event Handling</li>
+                <li>Control Structures and Debugging Techniques</li>
+              </ul>
+              <div class="resources">
+                <h4>Further Diving into JavaScript:</h4>
+                <ul>
+                  <li><a href="https://www.w3schools.com/js/" target="_blank">W3Schools JavaScript Tutorial</a></li>
+                  <li><a href="https://www.freecodecamp.org/news/learn-javascript-for-beginners/" target="_blank">freeCodeCamp: JavaScript for Beginners</a></li>
+                  <li><a href="https://javascript.info/" target="_blank">The Modern JavaScript Tutorial</a></li>
+                </ul>
+              </div>
+              <div class="live-playground">
+                <h3>Live JavaScript Playground</h3>
+                <div id="editor">// Type your JavaScript code here
+console.log('Ahoy, coder!');</div>
+                <button id="runBtn">Run Code</button>
+                <pre id="output">Console output will appear here...</pre>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="photo-sidebar">
+          <h3>Pirates Who Roam the Sea</h3>
+          <div class="photo-slot">
+            <figure>
+              <img src="images/doflamingo.jpg" alt="Doflamingo">
+              <figcaption>Donquixote Doflamingo</figcaption>
+            </figure>
+          </div>
+          <div class="photo-slot">
+            <figure>
+              <img src="images/shanks.jpg" alt="Shanks">
+              <figcaption>Portgas D. Shanks</figcaption>
+            </figure>
+          </div>
+          <div class="photo-slot">
+            <figure>
+              <img src="images/garp.jpg" alt="Garp">
+              <figcaption>Monkey D. Garp</figcaption>
+            </figure>
+          </div>
+          <!-- Add additional photo slots as needed -->
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <p>&copy; 2025 ONE CODE. All rights reserved.</p>
+  </footer>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+  <script src="https://code.jquery.com/ui/1.12.1/jquery-ui.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/ace/1.4.12/ace.js"></script>
+  <script src="scripts/script.js"></script>
+  <script>
+    $(function() {
+      $("#tabs").tabs();
+    });
+    if(document.getElementById("editor")) {
+      var editor = ace.edit("editor");
+      editor.setTheme("ace/theme/monokai");
+      editor.session.setMode("ace/mode/javascript");
+      document.getElementById("runBtn").addEventListener("click", function(){
+        var userCode = editor.getValue();
+        try {
+          var result = eval(userCode);
+          document.getElementById("output").innerText = (result !== undefined) ? result : "Check your console for output.";
+          console.log(result);
+        } catch(e) {
+          document.getElementById("output").innerText = "Error: " + e.message;
+        }
+      });
+    }
+  </script>
+</body>
+</html>

@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ONE CODE - Challenges</title>
+  <link rel="stylesheet" href="styles/styles.css">
+  <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+  <style>
+    body {
+      font-family: 'Treasure Map Deadhand', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to bottom, #fef3e2, #fff);
+      color: #2e2e2e;
+      margin: 0;
+      padding: 0;
+    }
+    .hero-challenge {
+      background: url('images/kraken-bg.jpg') no-repeat center center/cover;
+      height: 50vh;
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+    }
+    .hero-challenge .overlay {
+      position: absolute;
+      top: 0; 
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(0, 0, 0, 0.6);
+    }
+    .hero-challenge .content {
+      position: relative;
+      z-index: 2;
+      text-align: center;
+      color: #fff;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+    }
+    .hero-challenge h2 {
+      font-size: 3rem;
+      margin-bottom: 10px;
+      font-family: 'Pirata One', cursive;
+    }
+    .hero-challenge p {
+      font-size: 1.5rem;
+    }
+    .challenge-section {
+      padding: 40px 20px;
+      background: #fef3e2;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .challenge-section h2 {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+    }
+    .challenge-section p {
+      font-size: 1.2rem;
+      line-height: 1.6;
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    .challenge-examples, .mini-challenges, .interactive-challenge, .progress-tracker, .fancy-resources {
+      margin: 20px auto;
+      max-width: 800px;
+      background: #fff;
+      border: 2px solid #ffcc00;
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      margin-bottom: 30px;
+    }
+    .challenge-examples h3,
+    .mini-challenges h3,
+    .interactive-challenge h3,
+    .progress-tracker h3,
+    .fancy-resources h4 {
+      font-family: 'Pirata One', cursive;
+      color: #004080;
+      text-align: center;
+      margin-bottom: 15px;
+    }
+    .challenge-examples pre,
+    .mini-challenges pre,
+    .interactive-challenge pre {
+      background: #f4f4f4;
+      padding: 10px;
+      border-radius: 5px;
+      overflow-x: auto;
+      font-size: 0.95rem;
+      margin-bottom: 15px;
+    }
+    #quiz-form {
+      max-width: 500px;
+      margin: 20px auto;
+      background: #fff;
+      padding: 20px;
+      border: 2px solid #ffcc00;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    }
+    #quiz-form label {
+      font-weight: bold;
+      display: block;
+      margin-bottom: 10px;
+    }
+    #quiz-form input[type="text"] {
+      width: 100%;
+      padding: 10px;
+      font-size: 1rem;
+      border: 2px solid #ccc;
+      border-radius: 8px;
+      margin-bottom: 20px;
+      transition: border-color 0.3s;
+    }
+    #quiz-form input[type="text"]:focus {
+      border-color: #ff9900;
+      outline: none;
+    }
+    #quiz-form button {
+      background: #ff9900;
+      color: #fff;
+      padding: 12px 20px;
+      border: none;
+      border-radius: 8px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.3s;
+      display: block;
+      margin: 0 auto;
+    }
+    #quiz-form button:hover {
+      background: #cc7a00;
+      transform: translateY(-2px);
+    }
+    #quiz-result {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 1.2rem;
+      font-weight: bold;
+    }
+    .progress-tracker ul {
+      list-style: none;
+      padding: 0;
+    }
+    .progress-tracker li {
+      background: #f4f4f4;
+      margin: 10px 0;
+      padding: 10px;
+      border-radius: 5px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .progress-tracker button {
+      background: #ff9900;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      padding: 5px 10px;
+      cursor: pointer;
+    }
+    /* Fancy Resources Section */
+    .fancy-resources {
+      padding: 30px;
+      background: #fff;
+      border: 2px solid #ffcc00;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+    .fancy-resources h4 {
+      text-align: center;
+      color: #004080;
+      margin-bottom: 20px;
+      font-size: 2rem;
+    }
+    .resources-container {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+    .resource-card {
+      background: #fef3e2;
+      border: 2px solid #ffcc00;
+      border-radius: 10px;
+      width: 300px;
+      text-align: center;
+      padding: 15px;
+      transition: transform 0.3s ease;
+    }
+    .resource-card:hover {
+      transform: scale(1.05);
+    }
+    .resource-card img {
+      width: 100%;
+      height: 150px;
+      object-fit: cover;
+      border-radius: 5px;
+      margin-bottom: 15px;
+    }
+    .resource-card h5 {
+      margin: 10px 0;
+      color: #004080;
+    }
+    .resource-card p {
+      font-size: 0.95rem;
+      color: #333;
+      height: 60px;
+      overflow: hidden;
+    }
+    .resource-button {
+      display: inline-block;
+      margin-top: 10px;
+      padding: 10px 20px;
+      background: #ff9900;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 5px;
+      transition: background 0.3s ease;
+    }
+    .resource-button:hover {
+      background: #cc7a00;
+    }
+    .resources ul {
+      list-style: circle;
+      padding-left: 20px;
+      text-align: left;
+    }
+    .resources ul li a {
+      color: #ff9900 !important;
+      text-decoration: none !important;
+      background: transparent !important;
+    }
+    .resources ul li a:hover {
+      text-decoration: underline !important;
+    }
+    footer {
+      background: #000;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+      font-size: 0.9rem;
+    }
+    /* Simple fade-in animations */
+    .fadeIn {
+      animation: fadeIn 1s ease-in;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to   { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <h1>ONE CODE</h1>
+      <p>Prepare to face the coding Yonko!</p>
+    </div>
+    <nav>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="learn.html">Learn</a></li>
+        <li><a href="challenges.html" class="active">Challenges</a></li>
+        <li><a href="gallery.html">Student Gallery</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+  
+  <section class="hero-challenge fadeIn">
+    <div class="overlay"></div>
+    <div class="content">
+      <h2>Battle the Coding Yonko</h2>
+      <p>Face legendary challenges and prove your mettle on the digital seas!</p>
+    </div>
+  </section>
+  
+  <main>
+    <section class="challenge-section">
+      <h2>Coding Challenges</h2>
+      <p>
+        In the treacherous waters of coding, every task is a battle. These challenges are designed to sharpen your skills, test your logic, and prepare you for grand adventures on the Grand Line. Whether it’s a small skirmish or a major clash, every challenge counts!
+      </p>
+      
+      <div class="challenge-examples fadeIn">
+        <h3>Challenge Terminology &amp; Samples</h3>
+        <p><strong>Challenge:</strong> A puzzle or task requiring you to harness your coding arsenal. Each challenge is a full-blown battle against the horrors of the digital depths.</p>
+        <p><strong>HTML Challenge:</strong> Create a paragraph element that boldly proclaims your coding spirit.</p>
+        <pre>&lt;p&gt;Ahoy, coder!&lt;/p&gt;</pre>
+        <p><strong>CSS Challenge:</strong> Write a CSS rule that centers text horizontally—like aligning the sails on a pirate ship.</p>
+        <pre>
+.center-text {
+  text-align: center;
+}
+        </pre>
+        <p><strong>JavaScript Challenge:</strong> Write a function that logs "Hello, World!" to the console—summoning the voice of the digital sea.</p>
+        <pre>
+function greet() {
+  console.log("Hello, World!");
+}
+greet();
+        </pre>
+      </div>
+      
+      <div class="mini-challenges fadeIn">
+        <h3>Mini-Challenges</h3>
+        <p><strong>HTML Mini-Challenge:</strong> Create an image element for a pirate flag and include alternative text.</p>
+        <pre>&lt;img src="images/pirate-flag.png" alt="Pirate Flag"&gt;</pre>
+        <p><strong>CSS Mini-Challenge:</strong> Write a rule to change a button's color when hovered—let it shine like gold.</p>
+        <pre>
+button:hover {
+  background-color: #ffcc00;
+}
+        </pre>
+        <p><strong>JavaScript Mini-Challenge:</strong> Write a function that adds two numbers and logs the sum, proving that even simple math can be heroic.</p>
+        <pre>
+function add(a, b) {
+  console.log(a + b);
+}
+add(2, 3);
+        </pre>
+      </div>
+      
+      <div class="interactive-challenge fadeIn">
+        <h3>Interactive Challenge: Modify the Function!</h3>
+        <p>Below is a function that adds 2 to a given number. Click the "Transform Function" button and see it change to double the value!</p>
+        <pre id="function-code">
+function modifyNumber(num) {
+  return num + 2;
+}
+console.log(modifyNumber(5));
+        </pre>
+        <button onclick="transformFunction()">Transform Function</button>
+      </div>
+      
+      <form id="quiz-form" class="fadeIn">
+        <label for="question1">Quiz Q1: What does HTML stand for?</label>
+        <input type="text" id="question1" name="question1" placeholder="Enter your answer...">
+        
+        <label for="question2">Quiz Q2: What does CSS stand for?</label>
+        <input type="text" id="question2" name="question2" placeholder="Enter your answer...">
+        
+        <label for="question3">Quiz Q3: What does DOM stand for?</label>
+        <input type="text" id="question3" name="question3" placeholder="Enter your answer...">
+        
+        <button type="submit">Submit Answers</button>
+      </form>
+      
+      <div id="quiz-result" class="fadeIn"></div>
+      
+      <div class="progress-tracker fadeIn">
+        <h3>Your Challenge Progress</h3>
+        <ul id="progress-list">
+          <li>
+            <span>HTML Mini-Challenge</span>
+            <button onclick="markComplete('HTML Mini-Challenge')">Mark as Complete</button>
+          </li>
+          <li>
+            <span>CSS Mini-Challenge</span>
+            <button onclick="markComplete('CSS Mini-Challenge')">Mark as Complete</button>
+          </li>
+          <li>
+            <span>JavaScript Mini-Challenge</span>
+            <button onclick="markComplete('JavaScript Mini-Challenge')">Mark as Complete</button>
+          </li>
+        </ul>
+      </div>
+      
+      <div class="fancy-resources fadeIn">
+        <h4>Further Diving into Challenges</h4>
+        <div class="resources-container">
+          <div class="resource-card">
+            <img src="images/hackerrank.jpg" alt="HackerRank Logo">
+            <h5>HackerRank</h5>
+            <p>
+              Dive deep into coding challenges with HackerRank's 10 Days of JavaScript challenge.
+              Improve your skills with hands-on practice.
+            </p>
+            <a href="https://www.hackerrank.com/domains/tutorials/10-days-of-javascript" class="resource-button" target="_blank">Explore Challenge</a>
+          </div>
+          <div class="resource-card">
+            <img src="images/codecademy.jpg" alt="Codecademy Logo">
+            <h5>Codecademy</h5>
+            <p>
+              Learn JavaScript interactively with Codecademy and master the essentials of coding in an immersive environment.
+            </p>
+            <a href="https://www.codecademy.com/learn/introduction-to-javascript" class="resource-button" target="_blank">Start Learning</a>
+          </div>
+          <div class="resource-card">
+            <img src="images/freecodecamp.jpg" alt="freeCodeCamp Logo">
+            <h5>freeCodeCamp</h5>
+            <p>
+              Challenge yourself with freeCodeCamp’s comprehensive projects and courses to master web development.
+            </p>
+            <a href="https://www.freecodecamp.org/learn" class="resource-button" target="_blank">Dive In</a>
+          </div>
+        </div>
+      </div>
+      
+    </section>
+  </main>
+  
+  <footer>
+    <p>&copy; 2025 ONE CODE. All rights reserved.</p>
+  </footer>
+  
+  <script src="scripts/script.js"></script>
+  <script>
+    // Quiz functionality: Check answers and provide thematic feedback
+    document.getElementById('quiz-form').addEventListener('submit', function(e) {
+      e.preventDefault();
+      const answer1 = document.getElementById('question1').value.trim().toLowerCase();
+      const answer2 = document.getElementById('question2').value.trim().toLowerCase();
+      const answer3 = document.getElementById('question3').value.trim().toLowerCase();
+      
+      const correctAnswers = {
+        question1: "hypertext markup language",
+        question2: "cascading style sheets",
+        question3: "document object model"
+      };
+      
+      let correctCount = 0;
+      if (answer1 === correctAnswers.question1) { correctCount++; }
+      if (answer2 === correctAnswers.question2) { correctCount++; }
+      if (answer3 === correctAnswers.question3) { correctCount++; }
+      
+      const resultDiv = document.getElementById('quiz-result');
+      if(correctCount === 3) {
+        resultDiv.textContent = "Arrr! Ye got all 3 correct, matey! The seas of code be yours to command!";
+        resultDiv.style.color = "#33cc33";
+      } else {
+        resultDiv.textContent = "Ye got " + correctCount + " out of 3 correct. Sharpen your cutlass and study your treasure maps, then try again!";
+        resultDiv.style.color = "#cc3333";
+      }
+    });
+    
+    // Interactive challenge: Transform the function when the button is clicked
+    function transformFunction() {
+      const codeOutput = document.getElementById('function-code');
+      codeOutput.textContent = `
+function modifyNumber(num) {
+  return num * 2;
+}
+console.log(modifyNumber(5));
+      `;
+    }
+    
+    // Progress tracker functions using localStorage for persistence
+    function markComplete(challenge) {
+      let completedChallenges = JSON.parse(localStorage.getItem('completedChallenges')) || [];
+      if (!completedChallenges.includes(challenge)) {
+        completedChallenges.push(challenge);
+        localStorage.setItem('completedChallenges', JSON.stringify(completedChallenges));
+        alert(challenge + " marked as complete!");
+      } else {
+        alert(challenge + " is already marked as complete.");
+      }
+      updateProgressList();
+    }
+    
+    function updateProgressList() {
+      let completedChallenges = JSON.parse(localStorage.getItem('completedChallenges')) || [];
+      const progressList = document.getElementById('progress-list');
+      progressList.innerHTML = `
+        <li>
+          <span>HTML Mini-Challenge</span>
+          <button onclick="markComplete('HTML Mini-Challenge')">Mark as Complete</button>
+        </li>
+        <li>
+          <span>CSS Mini-Challenge</span>
+          <button onclick="markComplete('CSS Mini-Challenge')">Mark as Complete</button>
+        </li>
+        <li>
+          <span>JavaScript Mini-Challenge</span>
+          <button onclick="markComplete('JavaScript Mini-Challenge')">Mark as Complete</button>
+        </li>
+      `;
+      
+      // Update each item to reflect if it is already marked complete
+      const items = progressList.getElementsByTagName('li');
+      for (let li of items) {
+        let challengeName = li.getElementsByTagName('span')[0].textContent;
+        if (completedChallenges.includes(challengeName)) {
+          li.style.background = '#d4edda';
+          li.getElementsByTagName('button')[0].disabled = true;
+          li.getElementsByTagName('button')[0].textContent = 'Completed';
+        }
+      }
+    }
+    
+    window.onload = updateProgressList;
+  </script>
+</body>
+</html>
