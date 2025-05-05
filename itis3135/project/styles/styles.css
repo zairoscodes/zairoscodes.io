@@ -1,4 +1,9 @@
 /* Global Styles */
+:root {
+  /* Replace universal selector with :root for global styles */
+  box-sizing: border-box;
+}
+
 body {
   margin: 0;
   font-family: 'Treasure Map Deadhand', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -6,7 +11,6 @@ body {
   background-size: 200% 200%;
   animation: oceanWave 20s ease infinite;
   color: #2e2e2e;
-  /* Custom pirate-themed cursor (ensure you have this image available) */
   cursor: url('straw-hat-cursor.png'), auto;
 }
 
@@ -17,10 +21,34 @@ body {
   100% { background-position: 0% 50%; }
 }
 
-h1, h2, h3 {
+/* Base heading styles */
+.heading-base {
   font-family: 'Pirata One', cursive;
   color: #3e1e00;
-  text-shadow: 2px 2px 0px #dda15e; /* A subtle shadow for that weathered, treasure-map look */
+  text-shadow: 2px 2px 0px #dda15e;
+}
+
+/* Individual heading styles */
+.site-title {
+  font-size: 2.5rem;
+  margin: 0;
+  color: #ffcc00;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
+}
+
+.section-title {
+  font-size: 3rem;
+  margin-bottom: 20px;
+}
+
+.subsection-title {
+  font-size: 1.8rem;
+  margin-bottom: 15px;
+}
+
+.content-title {
+  color: #004080;
+  margin-bottom: 10px;
 }
 
 a {
@@ -44,16 +72,14 @@ header {
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
 }
 
-header.scrolled {
+.scrolled {
   background-color: rgba(0, 0, 0, 0.9);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
 }
 
-.logo h1 {
+/* Logo styles */
+.logo {
   margin: 0;
-  font-size: 2.5rem;
-  color: #ffcc00;
-  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.5);
 }
 
 .logo p {
@@ -76,7 +102,7 @@ nav li {
   display: inline;
 }
 
-nav a {
+.nav-link {
   color: #fff;
   font-weight: bold;
   padding: 5px 10px;
@@ -85,7 +111,8 @@ nav a {
   transition: background 0.3s, transform 0.3s;
 }
 
-nav a:hover, nav a.active {
+.nav-link:hover, 
+.active {
   background: #ffcc00;
   color: #000;
   transform: scale(1.05);
@@ -98,109 +125,110 @@ main {
   margin: auto;
 }
 
-/* Forms */
-form input, form textarea {
+/* Hero Section */
+.hero-learn {
+  background: url('images/treasure-map-bg.jpg') no-repeat center center/cover;
+  height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-bottom: 30px;
+}
+
+.hero-learn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
   width: 100%;
-  padding: 10px;
-  margin: 10px 0 20px;
-  border: 2px solid #ccc;
-  border-radius: 8px;
-  font-size: 1rem;
-  transition: border-color 0.3s;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.5);
 }
 
-form input:focus, form textarea:focus {
-  outline: none;
-  border-color: #ff9900;
+.hero-learn .hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: #fff;
 }
 
-form button {
-  background-color: #ff9900;
-  color: white;
-  padding: 12px 20px;
+.hero-title {
+  margin-bottom: 10px;
+  color: #fff;
+  text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+  font-size: 3rem;
+}
+
+.hero-content p {
+  font-size: 1.5rem;
+}
+
+/* Tabs */
+#tabs {
+  margin-top: 20px;
+}
+
+/* Resources Section */
+.resources {
+  margin-top: 20px;
+  padding-top: 10px;
+  border-top: 1px solid #ccc;
+}
+
+.resource-link {
+  color: #ff9900;
+  text-decoration: none;
+  background: transparent;
+}
+
+.resource-link:hover {
+  text-decoration: underline;
+}
+
+/* Live Playground */
+.live-playground {
+  margin: 20px auto;
+  max-width: 900px;
+  padding: 20px;
+  background: #fff;
+  border: 2px solid #ffcc00;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.editor-container {
+  border: 1px solid #ccc;
+}
+
+#editor {
+  min-height: 200px;
+  width: 100%;
+}
+
+#runBtn {
+  margin-top: 10px;
+  background: #ff9900;
+  color: #fff;
+  padding: 10px 20px;
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  font-weight: bold;
-  font-size: 1rem;
-  transition: background-color 0.3s, transform 0.3s;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.3);
 }
 
-form button:hover {
-  background-color: #cc7a00;
-  transform: translateY(-2px);
+#runBtn:hover {
+  background: #cc7a00;
 }
 
-form button:active {
-  transform: scale(0.98);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4) inset;
-}
-
-/* Slideshow */
-.slideshow-container {
-  position: relative;
-  max-width: 100%;
-  margin: 40px 0;
-}
-
-.slideshow-container img {
-  width: 100%;
-  display: none;
-  border-radius: 10px;
-  transition: opacity 0.5s ease-in-out;
-}
-
-.slideshow-container img.active {
-  display: block;
-  opacity: 1;
-}
-
-/* Gallery */
-.gallery {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 15px;
-  justify-content: center;
-}
-
-.gallery img {
-  width: 200px;
-  border: 3px solid #ffcc00;
-  border-radius: 10px;
-  transition: transform 0.3s, box-shadow 0.3s;
-}
-
-.gallery img:hover {
-  transform: scale(1.05);
-  box-shadow: 0 0 15px rgba(255, 204, 0, 0.8);
-}
-
-/* Tabs on Learn Page */
-#tabs ul {
-  background: #333;
-  color: white;
+#output {
+  background: #f4f4f4;
   padding: 10px;
-  list-style: none;
-  display: flex;
-  gap: 10px;
-  border-radius: 8px 8px 0 0;
-}
-
-#tabs ul li a {
-  color: white;
-  font-weight: bold;
-  padding: 10px;
-  background: #004080;
+  margin-top: 10px;
   border-radius: 5px;
-  transition: background 0.3s, transform 0.3s;
 }
 
-#tabs ul li a:hover, #tabs ul li.ui-tabs-active a {
-  background: #ffcc00;
-  color: #000;
-  transform: scale(1.05);
-}
+
+
 
 /* Footer */
 footer {
@@ -211,8 +239,27 @@ footer {
   font-size: 0.9rem;
 }
 
-/* Additional One Piece Thematic Enhancements */
-/* Pirate-inspired custom scrollbar */
+.link-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+.link-list li {
+  display: inline;
+}
+
+.footer-link {
+  text-decoration: none;
+  color: #fff;
+}
+
+/* Custom Scrollbar */
 body::-webkit-scrollbar {
   width: 10px;
 }
@@ -237,5 +284,13 @@ body::-webkit-scrollbar-thumb {
   .gallery {
     flex-direction: column;
     align-items: center;
+  }
+  
+  .lesson-container {
+    flex-direction: column;
+  }
+  
+  .photo-sidebar {
+    margin-top: 20px;
   }
 }

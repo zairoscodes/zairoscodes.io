@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="styles/styles.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/lightbox2/2.11.3/css/lightbox.min.css">
   <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-  
+  <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
   <style>
     /* Global Styles */
     body {
@@ -29,7 +29,7 @@
       100% { background-position: 0% 50%; }
     }
     
-    /* Headings and Links */
+    /* Global Headings and Links */
     h1, h2, h3 {
       font-family: 'Pirata One', cursive;
       color: #3e1e00;
@@ -57,7 +57,8 @@
       box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
     }
     
-    .logo h1 {
+    /* Use a dedicated class instead of a qualified selector for the logo heading */
+    .logo-heading {
       margin: 0;
       font-size: 2.5rem;
       color: #ffcc00;
@@ -93,7 +94,7 @@
     }
     
     nav a:hover,
-    nav a.active {
+    .active {
       background: #ffcc00;
       color: #000;
       transform: scale(1.05);
@@ -105,40 +106,67 @@
       max-width: 1000px;
       margin: auto;
     }
-    
-    /* Flex Container for Sidebars and Main Content */
     .content-container {
-      display: flex;
-      gap: 20px;
-      align-items: flex-start;
-      justify-content: center;
-    }
-    
-    .sidebar-left, .sidebar-right {
-      flex: 0 0 200px;
-    }
-    
-    .sidebar-left img,
-    .sidebar-right img {
-      width: 100%;
-      border: 2px solid #ffcc00;
-      border-radius: 10px;
-      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    }
-    
-    /* Project Ideas Section (Main Content) */
-    .project-ideas {
-      flex: 1;
-      text-align: center;
-    }
-    
-    .project-ideas h2 {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: nowrap;
+  padding: 20px;
+}
+
+/* Make sidebars take more horizontal space */
+.sidebar-left, .sidebar-right {
+  flex: 0 0 5%; /* Each takes 5% of the container */
+  max-width: none; /* Remove hard cap */
+}
+
+/* Let the main content shrink slightly if needed */
+.project-ideas {
+  flex: 1;
+  min-width: 300px;
+}
+
+/* Sidebar images should not take up all of the sidebar space, but be a bit larger */
+.sidebar-left img, .sidebar-right img {
+  width: auto;
+  max-width: 90%; /* Increased from 80% to 90% */
+  height: auto;
+  border: 2px solid #ffcc00;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  display: block;
+  margin: 0 auto; /* Center the image in the sidebar */
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 1024px) {
+  .content-container {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .sidebar-left, .sidebar-right, .project-ideas {
+    width: 90%;
+    max-width: 100%;
+  }
+}
+
+
+    /* Use a dedicated class for the project ideas heading */
+    .project-title {
       margin-bottom: 20px;
     }
     
     .project-ideas p {
       margin-bottom: 30px;
       font-size: 1.2rem;
+    }
+    
+    /* Use a dedicated class for category headings */
+    .category-title {
+      color: #004080;
+      margin-bottom: 15px;
     }
     
     .category {
@@ -148,11 +176,6 @@
       padding: 20px;
       margin: 20px 0;
       box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    }
-    
-    .category h3 {
-      color: #004080;
-      margin-bottom: 15px;
     }
     
     .category ul {
@@ -211,7 +234,8 @@
 <body>
   <header>
     <div class="logo">
-      <h1>ONE CODE</h1>
+      <!-- Updated to use the .logo-heading class -->
+      <h1 class="logo-heading">ONE CODE</h1>
       <p>Discover hidden treasures of creativity!</p>
     </div>
     <nav>
@@ -229,16 +253,18 @@
     <div class="content-container">
       <!-- Left Sidebar: Place for a photo -->
       <aside class="sidebar-left fadeIn">
-        <img src="images/left-placeholder.jpg" alt="Left Image Placeholder">
+        
       </aside>
       
       <!-- Main Project Ideas Content -->
       <section class="project-ideas fadeIn">
-        <h2 class="fadeIn">Project Ideas</h2>
+        <!-- Updated h2 with a dedicated class -->
+        <h2 class="project-title fadeIn">Project Ideas</h2>
         <p class="fadeIn">Explore these pre-existing projects for HTML, CSS, and JavaScript!</p>
         
         <div class="category fadeIn">
-          <h3>HTML Projects</h3>
+          <!-- Updated h3 with a dedicated class -->
+          <h3 class="category-title">HTML Projects</h3>
           <ul>
             <li><a href="https://www.w3schools.com/html/html_exercises.asp" target="_blank">W3Schools HTML Exercises</a></li>
             <li><a href="https://www.freecodecamp.org/learn/responsive-web-design/" target="_blank">freeCodeCamp HTML Projects</a></li>
@@ -247,7 +273,7 @@
         </div>
         
         <div class="category fadeIn">
-          <h3>CSS Projects</h3>
+          <h3 class="category-title">CSS Projects</h3>
           <ul>
             <li><a href="https://css-tricks.com/snippets/css/" target="_blank">CSS-Tricks Code Snippets</a></li>
             <li><a href="https://www.frontendmentor.io/" target="_blank">Frontend Mentor Challenges</a></li>
@@ -256,7 +282,7 @@
         </div>
         
         <div class="category fadeIn">
-          <h3>JavaScript Projects</h3>
+          <h3 class="category-title">JavaScript Projects</h3>
           <ul>
             <li><a href="https://javascript30.com/" target="_blank">JavaScript 30</a></li>
             <li><a href="https://www.frontendmentor.io/challenges?type=javascript" target="_blank">Frontend Mentor JS Challenges</a></li>
@@ -267,28 +293,31 @@
       
       <!-- Right Sidebar: Place for another photo -->
       <aside class="sidebar-right fadeIn">
-        <img src="images/right-placeholder.jpg" alt="Right Image Placeholder">
+        
       </aside>
     </div>
   </main>
   
   <footer>
-    <ul>
-      <a href="/">CLT Web</a>
-      <a href="https://github.com/zairoscodes">GitHub</a>
-      <a href="https://github.com/zairoscodes/zairoscodes.io">GitHub.io Page</a>
-      <a href="https://www.freecodecamp.org/ChristianBCodes">FreeCodeCamp</a>
-      <a href="https://www.codecademy.com/profiles/Christianb.CODES">Codecademy</a>
-      <a href="https://www.linkedin.com/in/christian-beckford/">LinkedIn</a>
-      <a href="https://validator.w3.org/check?uri=referer" id="validation_link_html">
-          <img style="border:0;width:88px;height:31px" src="https://mytienhoang.github.io/itis3135/z_archives/">
+    <ul class="link-list">
+      <li><a href="/">CLT Web</a></li>
+      <li><a href="https://github.com/zairoscodes">GitHub</a></li>
+      <li><a href="https://github.com/zairoscodes/zairoscodes.io">GitHub.io Page</a></li>
+      <li><a href="https://www.freecodecamp.org/ChristianBCodes">FreeCodeCamp</a></li>
+      <li><a href="https://www.codecademy.com/profiles/Christianb.CODES">Codecademy</a></li>
+      <li><a href="https://www.linkedin.com/in/christian-beckford/">LinkedIn</a></li>
+      <li>
+        <a href="https://validator.w3.org/check?uri=referer" id="validation_link_html">
+          <img style="border:0;width:88px;height:31px" src="https://www.w3.org/Icons/valid-html401" alt="Valid HTML!">
         </a>
+      </li>
+      <li>
         <a href="https://jigsaw.w3.org/css-validator/check/referer" id="validation_link_css">
-          <img style="border:0;width:88px;height:31px" src="https://jigsaw.w3.org/css-validator/images/vcss">
+          <img style="border:0;width:88px;height:31px" src="https://jigsaw.w3.org/css-validator/images/vcss" alt="Valid CSS!">
         </a>
-        
+      </li>
     </ul>
-    <p><a href="firm.html"> @ Beckford Innovation 2025</a></p>
+    <p><a href="..BeckfordInnovations.html"> @ Beckford Innovation 2025</a></p>
   </footer>
   
   <!-- jQuery (if needed for further interactivity) -->

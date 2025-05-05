@@ -5,15 +5,86 @@
   <title>ONE CODE - Challenges</title>
   <link rel="stylesheet" href="styles/styles.css">
   <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
-  
+  <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
   <style>
+    /* Global Styles */
     body {
+      margin: 0;
       font-family: 'Treasure Map Deadhand', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       background: linear-gradient(to bottom, #fef3e2, #fff);
+      background-size: 200% 200%;
+      animation: oceanWave 20s ease infinite;
       color: #2e2e2e;
-      margin: 0;
-      padding: 0;
+      cursor: url('straw-hat-cursor.png'), auto;
     }
+    @keyframes oceanWave {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+    /* Global Heading Rule */
+    h1, h2, h3 {
+      font-family: 'Pirata One', cursive;
+      color: #3e1e00;
+      text-shadow: 2px 2px 0px #dda15e;
+    }
+    a {
+      text-decoration: none;
+      color: #004080;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+    /* Header & Navigation */
+    header {
+      background-color: rgba(0, 0, 0, 0.7);
+      padding: 20px;
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 999;
+      transition: background 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+    }
+    /* Use a dedicated class for the logo heading */
+    .logo-heading {
+      margin: 0;
+      font-size: 2.5rem;
+      color: #ffcc00;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.5);
+    }
+    .logo p {
+      font-style: italic;
+      font-size: 1rem;
+      margin: 5px 0 0;
+      color: #ddd;
+    }
+    nav ul {
+      list-style: none;
+      padding: 0;
+      display: flex;
+      gap: 20px;
+      margin: 10px 0 0;
+    }
+    nav li {
+      display: inline;
+    }
+    nav a {
+      color: #fff;
+      font-weight: bold;
+      padding: 5px 10px;
+      border-radius: 5px;
+      background: transparent;
+      transition: background 0.3s, transform 0.3s;
+    }
+    /* Remove element qualification for the active link */
+    nav a:hover,
+    .active {
+      background: #ffcc00;
+      color: #000;
+      transform: scale(1.05);
+    }
+    /* Hero Challenge Section */
     .hero-challenge {
       background: url('images/kraken-bg.jpg') no-repeat center center/cover;
       height: 50vh;
@@ -25,45 +96,50 @@
     }
     .hero-challenge .overlay {
       position: absolute;
-      top: 0; 
+      top: 0;
       left: 0;
       width: 100%;
       height: 100%;
       background: rgba(0, 0, 0, 0.6);
     }
-    .hero-challenge .content {
-      position: relative;
-      z-index: 2;
-      text-align: center;
-      color: #fff;
-      text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
-    }
-    .hero-challenge h2 {
+    /* Use dedicated classes instead of qualified selectors */
+    .hero-heading {
       font-size: 3rem;
       margin-bottom: 10px;
-      font-family: 'Pirata One', cursive;
+      text-shadow: 2px 2px 5px rgba(0,0,0,0.7);
+      text-align: center;
     }
-    .hero-challenge p {
+    .hero-subheading {
       font-size: 1.5rem;
+      margin-bottom: 30px;
+      text-shadow: 1px 1px 3px rgba(0,0,0,0.7);
+      text-align: center;
     }
+    /* Challenge Section */
     .challenge-section {
       padding: 40px 20px;
       background: #fef3e2;
       max-width: 1200px;
       margin: auto;
     }
-    .challenge-section h2 {
+    /* Use a dedicated class for the challenge section heading */
+    .challenge-section-heading {
       text-align: center;
       font-size: 2.5rem;
       margin-bottom: 20px;
     }
-    .challenge-section p {
+    .challenge-section-text {
       font-size: 1.2rem;
       line-height: 1.6;
       text-align: center;
       margin-bottom: 20px;
     }
-    .challenge-examples, .mini-challenges, .interactive-challenge, .progress-tracker, .fancy-resources {
+    /* Box Groups for Challenges */
+    .challenge-examples,
+    .mini-challenges,
+    .interactive-challenge,
+    .progress-tracker,
+    .fancy-resources {
       margin: 20px auto;
       max-width: 800px;
       background: #fff;
@@ -72,17 +148,16 @@
       padding: 20px;
       box-shadow: 0 4px 8px rgba(0,0,0,0.2);
       margin-bottom: 30px;
+      box-sizing: border-box;
     }
-    .challenge-examples h3,
-    .mini-challenges h3,
-    .interactive-challenge h3,
-    .progress-tracker h3,
-    .fancy-resources h4 {
+    /* Common dedicated class for section subheadings */
+    .section-heading {
       font-family: 'Pirata One', cursive;
       color: #004080;
       text-align: center;
       margin-bottom: 15px;
     }
+    /* Preformatted Code Blocks */
     .challenge-examples pre,
     .mini-challenges pre,
     .interactive-challenge pre {
@@ -93,6 +168,7 @@
       font-size: 0.95rem;
       margin-bottom: 15px;
     }
+    /* Quiz Form Styling */
     #quiz-form {
       max-width: 500px;
       margin: 20px auto;
@@ -101,6 +177,7 @@
       border: 2px solid #ffcc00;
       border-radius: 10px;
       box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+      box-sizing: border-box;
     }
     #quiz-form label {
       font-weight: bold;
@@ -115,6 +192,7 @@
       border-radius: 8px;
       margin-bottom: 20px;
       transition: border-color 0.3s;
+      box-sizing: border-box;
     }
     #quiz-form input[type="text"]:focus {
       border-color: #ff9900;
@@ -142,6 +220,7 @@
       font-size: 1.2rem;
       font-weight: bold;
     }
+    /* Progress Tracker */
     .progress-tracker ul {
       list-style: none;
       padding: 0;
@@ -171,14 +250,12 @@
       border-radius: 10px;
       box-shadow: 0 4px 8px rgba(0,0,0,0.2);
       max-width: 1200px;
-      margin-left: auto;
-      margin-right: auto;
+      margin: 0 auto;
     }
-    .fancy-resources h4 {
-      text-align: center;
+    /* Dedicated class for resource headings */
+    .resource-heading {
+      margin: 10px 0;
       color: #004080;
-      margin-bottom: 20px;
-      font-size: 2rem;
     }
     .resources-container {
       display: flex;
@@ -194,6 +271,7 @@
       text-align: center;
       padding: 15px;
       transition: transform 0.3s ease;
+      box-sizing: border-box;
     }
     .resource-card:hover {
       transform: scale(1.05);
@@ -204,10 +282,6 @@
       object-fit: cover;
       border-radius: 5px;
       margin-bottom: 15px;
-    }
-    .resource-card h5 {
-      margin: 10px 0;
-      color: #004080;
     }
     .resource-card p {
       font-size: 0.95rem;
@@ -234,12 +308,12 @@
       text-align: left;
     }
     .resources ul li a {
-      color: #ff9900 !important;
-      text-decoration: none !important;
-      background: transparent !important;
+      color: #ff9900;
+      text-decoration: none;
+      background: transparent;
     }
     .resources ul li a:hover {
-      text-decoration: underline !important;
+      text-decoration: underline;
     }
     footer {
       background: #000;
@@ -248,7 +322,7 @@
       text-align: center;
       font-size: 0.9rem;
     }
-    /* Simple fade-in animations */
+    /* Simple Fade-In Animations */
     .fadeIn {
       animation: fadeIn 1s ease-in;
     }
@@ -261,37 +335,39 @@
 <body>
   <header>
     <div class="logo">
-      <h1>ONE CODE</h1>
-      <p>Prepare to face the coding Yonko!</p>
+      <h1 class="logo-heading">ONE CODE</h1>
+      <p>Prepare to face the coding Yonko's</p>
     </div>
     <nav>
       <ul>
         <li><a href="index.html">Home</a></li>
         <li><a href="learn.html">Learn</a></li>
         <li><a href="challenges.html" class="active">Challenges</a></li>
-        <li><a href="gallery.html">Student Gallery</a></li>
+        <li><a href="gallery.html">Project Ideas</a></li>
         <li><a href="contact.html">Contact</a></li>
       </ul>
     </nav>
   </header>
   
-  <section class="hero-challenge fadeIn">
-    <div class="overlay"></div>
-    <div class="content">
-      <h2>Battle the Coding Yonko</h2>
-      <p>Face legendary challenges and prove your mettle on the digital seas!</p>
+  <!-- Hero Challenge Section -->
+  <section class="hero-challenge fadeIn" style="background: url('images/whitebeaard-shanks-big-mom-and-kaido.jpg') no-repeat center top; background-size: cover; height: 70vh; position: relative; display: flex; align-items: center; justify-content: center;">
+    <div class="overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5);"></div>
+    <div class="content" style="position: relative; text-align: center; color: #fff; z-index: 1;">
+      <h2 class="hero-heading">Battle the Coding Yonko's</h2>
+      <p class="hero-subheading">Face legendary challenges and prove your mettle on the digital seas!</p>
+      <a href="challenges.html" class="btn" style="background: #ffcc00; color: #000; padding: 15px 30px; border-radius: 8px; text-decoration: none; font-weight: bold; transition: transform 0.3s;">View Challenges</a>
     </div>
   </section>
   
   <main>
     <section class="challenge-section">
-      <h2>Coding Challenges</h2>
-      <p>
+      <h2 class="challenge-section-heading">Coding Challenges</h2>
+      <p class="challenge-section-text">
         In the treacherous waters of coding, every task is a battle. These challenges are designed to sharpen your skills, test your logic, and prepare you for grand adventures on the Grand Line. Whether it’s a small skirmish or a major clash, every challenge counts!
       </p>
       
       <div class="challenge-examples fadeIn">
-        <h3>Challenge Terminology &amp; Samples</h3>
+        <h3 class="section-heading">Challenge Terminology &amp; Samples</h3>
         <p><strong>Challenge:</strong> A puzzle or task requiring you to harness your coding arsenal. Each challenge is a full-blown battle against the horrors of the digital depths.</p>
         <p><strong>HTML Challenge:</strong> Create a paragraph element that boldly proclaims your coding spirit.</p>
         <pre>&lt;p&gt;Ahoy, coder!&lt;/p&gt;</pre>
@@ -311,7 +387,7 @@ greet();
       </div>
       
       <div class="mini-challenges fadeIn">
-        <h3>Mini-Challenges</h3>
+        <h3 class="section-heading">Mini-Challenges</h3>
         <p><strong>HTML Mini-Challenge:</strong> Create an image element for a pirate flag and include alternative text.</p>
         <pre>&lt;img src="images/pirate-flag.png" alt="Pirate Flag"&gt;</pre>
         <p><strong>CSS Mini-Challenge:</strong> Write a rule to change a button's color when hovered—let it shine like gold.</p>
@@ -330,7 +406,7 @@ add(2, 3);
       </div>
       
       <div class="interactive-challenge fadeIn">
-        <h3>Interactive Challenge: Modify the Function!</h3>
+        <h3 class="section-heading">Interactive Challenge: Modify the Function!</h3>
         <p>Below is a function that adds 2 to a given number. Click the "Transform Function" button and see it change to double the value!</p>
         <pre id="function-code">
 function modifyNumber(num) {
@@ -357,7 +433,7 @@ console.log(modifyNumber(5));
       <div id="quiz-result" class="fadeIn"></div>
       
       <div class="progress-tracker fadeIn">
-        <h3>Your Challenge Progress</h3>
+        <h3 class="section-heading">Your Challenge Progress</h3>
         <ul id="progress-list">
           <li>
             <span>HTML Mini-Challenge</span>
@@ -375,11 +451,11 @@ console.log(modifyNumber(5));
       </div>
       
       <div class="fancy-resources fadeIn">
-        <h4>Further Diving into Challenges</h4>
+        <h4 class="resource-heading">Further Diving into Challenges</h4>
         <div class="resources-container">
           <div class="resource-card">
             <img src="images/hackerrank.jpg" alt="HackerRank Logo">
-            <h5>HackerRank</h5>
+            <h5 class="resource-heading">HackerRank</h5>
             <p>
               Dive deep into coding challenges with HackerRank's 10 Days of JavaScript challenge.
               Improve your skills with hands-on practice.
@@ -388,7 +464,7 @@ console.log(modifyNumber(5));
           </div>
           <div class="resource-card">
             <img src="images/codecademy.jpg" alt="Codecademy Logo">
-            <h5>Codecademy</h5>
+            <h5 class="resource-heading">Codecademy</h5>
             <p>
               Learn JavaScript interactively with Codecademy and master the essentials of coding in an immersive environment.
             </p>
@@ -396,7 +472,7 @@ console.log(modifyNumber(5));
           </div>
           <div class="resource-card">
             <img src="images/freecodecamp.jpg" alt="freeCodeCamp Logo">
-            <h5>freeCodeCamp</h5>
+            <h5 class="resource-heading">freeCodeCamp</h5>
             <p>
               Challenge yourself with freeCodeCamp’s comprehensive projects and courses to master web development.
             </p>
@@ -409,25 +485,28 @@ console.log(modifyNumber(5));
   </main>
   
   <footer>
-    <ul>
-      <a href="/">CLT Web</a>
-      <a href="https://github.com/zairoscodes">GitHub</a>
-      <a href="https://github.com/zairoscodes/zairoscodes.io">GitHub.io Page</a>
-      <a href="https://www.freecodecamp.org/ChristianBCodes">FreeCodeCamp</a>
-      <a href="https://www.codecademy.com/profiles/Christianb.CODES">Codecademy</a>
-      <a href="https://www.linkedin.com/in/christian-beckford/">LinkedIn</a>
-      <a href="https://validator.w3.org/check?uri=referer" id="validation_link_html">
-          <img style="border:0;width:88px;height:31px" src="https://mytienhoang.github.io/itis3135/z_archives/">
+    <ul class="link-list">
+      <li><a href="/">CLT Web</a></li>
+      <li><a href="https://github.com/zairoscodes">GitHub</a></li>
+      <li><a href="https://github.com/zairoscodes/zairoscodes.io">GitHub.io Page</a></li>
+      <li><a href="https://www.freecodecamp.org/ChristianBCodes">FreeCodeCamp</a></li>
+      <li><a href="https://www.codecademy.com/profiles/Christianb.CODES">Codecademy</a></li>
+      <li><a href="https://www.linkedin.com/in/christian-beckford/">LinkedIn</a></li>
+      <li>
+        <a href="https://validator.w3.org/check?uri=referer" id="validation_link_html">
+          <img style="border:0;width:88px;height:31px" src="https://www.w3.org/Icons/valid-html401" alt="Valid HTML!">
         </a>
+      </li>
+      <li>
         <a href="https://jigsaw.w3.org/css-validator/check/referer" id="validation_link_css">
-          <img style="border:0;width:88px;height:31px" src="https://jigsaw.w3.org/css-validator/images/vcss">
+          <img style="border:0;width:88px;height:31px" src="https://jigsaw.w3.org/css-validator/images/vcss" alt="Valid CSS!">
         </a>
-        
+      </li>
     </ul>
-    <p><a href="firm.html"> @ Beckford Innovation 2025</a></p>
+    <p><a href="..BeckfordInnovations.html"> @ Beckford Innovation 2025</a></p>
   </footer>
   
-  <script src="scripts/script.js"></script>
+  <script src="scrpits/script.js"></script>
   <script>
     // Quiz functionality: Check answers and provide thematic feedback
     document.getElementById('quiz-form').addEventListener('submit', function(e) {
@@ -448,7 +527,7 @@ console.log(modifyNumber(5));
       if (answer3 === correctAnswers.question3) { correctCount++; }
       
       const resultDiv = document.getElementById('quiz-result');
-      if(correctCount === 3) {
+      if (correctCount === 3) {
         resultDiv.textContent = "Arrr! Ye got all 3 correct, matey! The seas of code be yours to command!";
         resultDiv.style.color = "#33cc33";
       } else {
@@ -457,30 +536,7 @@ console.log(modifyNumber(5));
       }
     });
     
-    // Interactive challenge: Transform the function when the button is clicked
-    function transformFunction() {
-      const codeOutput = document.getElementById('function-code');
-      codeOutput.textContent = `
-function modifyNumber(num) {
-  return num * 2;
-}
-console.log(modifyNumber(5));
-      `;
-    }
-    
-    // Progress tracker functions using localStorage for persistence
-    function markComplete(challenge) {
-      let completedChallenges = JSON.parse(localStorage.getItem('completedChallenges')) || [];
-      if (!completedChallenges.includes(challenge)) {
-        completedChallenges.push(challenge);
-        localStorage.setItem('completedChallenges', JSON.stringify(completedChallenges));
-        alert(challenge + " marked as complete!");
-      } else {
-        alert(challenge + " is already marked as complete.");
-      }
-      updateProgressList();
-    }
-    
+    // Define updateProgressList before it is used.
     function updateProgressList() {
       let completedChallenges = JSON.parse(localStorage.getItem('completedChallenges')) || [];
       const progressList = document.getElementById('progress-list');
@@ -511,7 +567,30 @@ console.log(modifyNumber(5));
       }
     }
     
+    function markComplete(challenge) {
+      let completedChallenges = JSON.parse(localStorage.getItem('completedChallenges')) || [];
+      if (!completedChallenges.includes(challenge)) {
+        completedChallenges.push(challenge);
+        localStorage.setItem('completedChallenges', JSON.stringify(completedChallenges));
+        alert(challenge + " marked as complete!");
+      } else {
+        alert(challenge + " is already marked as complete.");
+      }
+      updateProgressList();
+    }
+    
     window.onload = updateProgressList;
+    
+    // Interactive challenge: Transform the function when the button is clicked
+    function transformFunction() {
+      const codeOutput = document.getElementById('function-code');
+      codeOutput.textContent = `
+function modifyNumber(num) {
+  return num * 2;
+}
+console.log(modifyNumber(5));
+      `;
+    }
   </script>
 </body>
 </html>
