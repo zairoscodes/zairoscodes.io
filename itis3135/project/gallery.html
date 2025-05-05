@@ -115,43 +115,6 @@
   padding: 20px;
 }
 
-/* Make sidebars take more horizontal space */
-.sidebar-left, .sidebar-right {
-  flex: 0 0 5%; /* Each takes 5% of the container */
-  max-width: none; /* Remove hard cap */
-}
-
-/* Let the main content shrink slightly if needed */
-.project-ideas {
-  flex: 1;
-  min-width: 300px;
-}
-
-/* Sidebar images should not take up all of the sidebar space, but be a bit larger */
-.sidebar-left img, .sidebar-right img {
-  width: auto;
-  max-width: 90%; /* Increased from 80% to 90% */
-  height: auto;
-  border: 2px solid #ffcc00;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  display: block;
-  margin: 0 auto; /* Center the image in the sidebar */
-}
-
-/* Responsive adjustments for smaller screens */
-@media (max-width: 1024px) {
-  .content-container {
-    flex-direction: column;
-    align-items: center;
-  }
-
-  .sidebar-left, .sidebar-right, .project-ideas {
-    width: 90%;
-    max-width: 100%;
-  }
-}
-
 
     /* Use a dedicated class for the project ideas heading */
     .project-title {
