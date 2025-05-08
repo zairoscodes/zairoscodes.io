@@ -1,222 +1,230 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>HTML Tables - Christian</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ITIS 3135 - HTML Tables Activity</title>
   <style>
+    /* Basic page styling */
     body {
       font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
+      background: #fafafa;
     }
-
     header, footer {
-      background-color: #333;
-      color: white;
+      background-color: #eee;
       padding: 1em;
       text-align: center;
     }
-
-    nav a {
+    nav ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+      display: inline-flex;
+    }
+    nav ul li {
       margin: 0 10px;
-      color: white;
+    }
+    nav ul li a {
       text-decoration: none;
+      color: #333;
     }
-
     main {
-      padding: 20px;
+      padding: 1em;
     }
 
+    /* Table styling */
     table {
       width: 100%;
       border-collapse: collapse;
-      margin-bottom: 30px;
+      margin-bottom: 2em;
     }
-
     th, td {
-      padding: 10px;
-      border: 1px solid #999;
+      border: 1px solid #ccc;
+      padding: 0.5em;
       text-align: left;
     }
-
-    /* Top row (inside thead) gets a darker background */
+    /* Use pseudo-classes for distinctive row color changes */
     thead tr {
-      background-color: #444;
+      background-color: #333;
       color: #fff;
     }
-
-    /* Use pseudo-classes to alternate row colors in tbody */
-    tbody tr:nth-child(odd) {
-      background-color: #ffffff;
-    }
-    
     tbody tr:nth-child(even) {
       background-color: #f9f9f9;
     }
-
-    figure {
-      margin: 0;
+    tbody tr:nth-child(odd) {
+      background-color: #fff;
     }
-
-    figcaption {
-      font-weight: bold;
-      margin-bottom: 10px;
-    }
-
-    .validation {
-      margin-top: 10px;
-    }
-    footer {
-    margin-top: 30px;
-    padding: 20px;
-    background-color: #222;
-    color: white;
-    text-align: center;
-    font-size: 0.9em;
-}
-
-.link-list {
-    list-style: none;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 15px;
-}
-
-.link-list li {
-    display: inline-block;
-}
-
-.link-list a {
-    color: #bbb;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.link-list a:hover {
-    color: #fff;
-}
-
-.validation-icons {
-    margin-top: 10px;
-}
-
-.validation-icons img {
-    margin: 5px;
-}
-
   </style>
 </head>
 <body>
+  <!-- Standard header with navigation -->
   <header>
-    <h1>ITIS 3135 - Christian</h1>
-    <p>Learn to code with HTML tables</p>
+    <h1>ITIS 3135 - Christian's Webpage</h1>
     <nav>
-      <a href="index.html">Home</a>
-      <a href="tables.html">Tables</a>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="tables.html">Tables</a></li>
+        <!-- add other navigation links as needed -->
+      </ul>
     </nav>
   </header>
 
+  <!-- Main content area -->
   <main>
     <h2>Activity #2 - HTML Tables</h2>
+    <p>This page demonstrates how to build both simple and complex HTML tables with accessibility in mind and CSS pseudo-class styling for alternate row colors.</p>
+
+    <!-- Part 2: Ordered list of employee data -->
+    <h3>My Tabular Data</h3>
+    <ol>
+      <li>D.I. von Briesen - dvonbri1@uncc.edu - 1 year</li>
+      <li>Esam Abdullah - eabdullah@gmail.com - 31 years</li>
+      <li>Medina Gomez - gomez_med8@yahoo.com - 3 years</li>
+      <li>John Doe - jdoe@company.com - 10 years</li>
+      <li>Jane Smith - jane.smith@yahoo.com - 8 years</li>
+      <li>Michael Brown - mbrown@company.com - 20 years</li>
+      <li>Sarah Johnson - sjohnson@company.com - 5 years</li>
+    </ol>
+
+    <!-- Part 3: Simple table -->
+    <h3>Employee Data in Simple Table</h3>
+    <table>
+      <thead>
+        <tr>
+          <th id="name">Name</th>
+          <th id="email">Email</th>
+          <th id="service">Years of Service</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td headers="name">D.I. von Briesen</td>
+          <td headers="email">dvonbri1@uncc.edu</td>
+          <td headers="service">1</td>
+        </tr>
+        <tr>
+          <td headers="name">Esam Abdullah</td>
+          <td headers="email">eabdullah@gmail.com</td>
+          <td headers="service">31</td>
+        </tr>
+        <tr>
+          <td headers="name">Medina Gomez</td>
+          <td headers="email">gomez_med8@yahoo.com</td>
+          <td headers="service">3</td>
+        </tr>
+        <tr>
+          <td headers="name">John Doe</td>
+          <td headers="email">jdoe@company.com</td>
+          <td headers="service">10</td>
+        </tr>
+        <tr>
+          <td headers="name">Jane Smith</td>
+          <td headers="email">jane.smith@yahoo.com</td>
+          <td headers="service">8</td>
+        </tr>
+        <tr>
+          <td headers="name">Michael Brown</td>
+          <td headers="email">mbrown@company.com</td>
+          <td headers="service">20</td>
+        </tr>
+        <tr>
+          <td headers="name">Sarah Johnson</td>
+          <td headers="email">sjohnson@company.com</td>
+          <td headers="service">5</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <!-- Part 4: Complex table -->
     <h3>Employee Data in Complex Table</h3>
     <figure>
-      <figcaption>Employee Information - ONE CODE Team</figcaption>
+      <figcaption>Employee Information</figcaption>
       <table>
         <thead>
+          <!-- Five columns: Category, Name, Email, Years of Service, Monthly Salary -->
           <tr>
-            <th scope="col">Category</th>
-            <th id="name" scope="col">Name</th>
-            <th id="email" scope="col">Email</th>
-            <th id="years" scope="col">Years of Service</th>
-            <th id="salary" scope="col">Monthly Salary</th>
+            <th id="cat">Category</th>
+            <th id="name2">Name</th>
+            <th id="email2">Email</th>
+            <th id="service2">Years of Service</th>
+            <th id="salary">Monthly Salary</th>
           </tr>
         </thead>
         <tbody>
-          <!-- Captain category with two employees (using rowspan) -->
+          <!-- Leadership: using rowspan for the category cell -->
           <tr>
-            <td rowspan="2">Captain</td>
-            <td headers="name">Luffy D. Monkey</td>
-            <td headers="email">luffy@onecode.com</td>
-            <td headers="years">5</td>
-            <td headers="salary">$5,000</td>
+            <td headers="cat" rowspan="2">Leadership</td>
+            <td headers="name2">D.I. von Briesen</td>
+            <td headers="email2">dvonbri1@uncc.edu</td>
+            <td headers="service2">1</td>
+            <td headers="salary">$1,000,000.01</td>
           </tr>
           <tr>
-            <td headers="name">Zoro S. Hunter</td>
-            <td headers="email">zoro@swordmail.net</td>
-            <td headers="years">7</td>
-            <td headers="salary">$4,500</td>
+            <td headers="name2">Esam Abdullah</td>
+            <td headers="email2">eabdullah@gmail.com</td>
+            <td headers="service2">31</td>
+            <td headers="salary">$25,000.00</td>
           </tr>
-          <!-- Navigator category with two employees -->
+          <!-- Development: three rows -->
           <tr>
-            <td rowspan="2">Navigator</td>
-            <td headers="name">Nami R. Bell</td>
-            <td headers="email">nami@treasuremail.com</td>
-            <td headers="years">3</td>
-            <td headers="salary">$3,000</td>
-          </tr>
-          <tr>
-            <td headers="name">Robin Nico</td>
-            <td headers="email">robin@historynow.org</td>
-            <td headers="years">4</td>
-            <td headers="salary">$3,500</td>
-          </tr>
-          <!-- Support category with three employees -->
-          <tr>
-            <td rowspan="3">Support</td>
-            <td headers="name">Sanji Vinsmoke</td>
-            <td headers="email">sanji@cookingcloud.com</td>
-            <td headers="years">6</td>
-            <td headers="salary">$4,000</td>
+            <td headers="cat" rowspan="3">Development</td>
+            <td headers="name2">Medina Gomez</td>
+            <td headers="email2">gomez_med8@yahoo.com</td>
+            <td headers="service2">3</td>
+            <td headers="salary">$55,000.00</td>
           </tr>
           <tr>
-            <td headers="name">Franky Cyborg</td>
-            <td headers="email">franky@shipwright.io</td>
-            <td headers="years">8</td>
-            <td headers="salary">$4,200</td>
+            <td headers="name2">John Doe</td>
+            <td headers="email2">jdoe@company.com</td>
+            <td headers="service2">10</td>
+            <td headers="salary">$40,000.00</td>
           </tr>
           <tr>
-            <td headers="name">Brook Soulman</td>
-            <td headers="email">brook@musicsail.org</td>
-            <td headers="years">2</td>
-            <td headers="salary">$2,800</td>
+            <td headers="name2">Jane Smith</td>
+            <td headers="email2">jane.smith@yahoo.com</td>
+            <td headers="service2">8</td>
+            <td headers="salary">$32,000.00</td>
           </tr>
-          <!-- Bottom row with totals.
-               The first three cells are spanned by the header cell. -->
+          <!-- Sales: two rows -->
+          <tr>
+            <td headers="cat" rowspan="2">Sales</td>
+            <td headers="name2">Michael Brown</td>
+            <td headers="email2">mbrown@company.com</td>
+            <td headers="service2">20</td>
+            <td headers="salary">$60,000.00</td>
+          </tr>
+          <tr>
+            <td headers="name2">Sarah Johnson</td>
+            <td headers="email2">sjohnson@company.com</td>
+            <td headers="service2">5</td>
+            <td headers="salary">$28,000.00</td>
+          </tr>
+          <!-- Bottom row: totals for years of service and salaries -->
           <tr>
             <th colspan="3">Total Years of Service</th>
-            <td>35</td>
-            <td>$27,000</td>
+            <td>78</td>
+            <td>$1,240,000.01</td>
           </tr>
         </tbody>
       </table>
     </figure>
   </main>
 
+  <!-- Standard footer with navigation and validation links -->
   <footer>
     <nav>
-      <footer>
-        <ul class="link-list">
-            <li><a href="/">CLT Web</a></li>
-            <li><a href="https://github.com/zairoscodes">GitHub</a></li>
-            <li><a href="https://github.com/zairoscodes/zairoscodes.io">GitHub.io Page</a></li>
-            <li><a href="https://www.freecodecamp.org/ChristianBCodes">FreeCodeCamp</a></li>
-            <li><a href="https://www.codecademy.com/profiles/Christianb.CODES">Codecademy</a></li>
-            <li><a href="https://www.linkedin.com/in/christian-beckford/">LinkedIn</a></li>
-        </ul>
-        <div class="validation-icons">
-            <a href="https://validator.w3.org/check?uri=referer" id="validation_link_html">
-                <img src="https://www.w3.org/Icons/valid-html401" alt="Valid HTML!" width="88" height="31">
-            </a>
-            <a href="https://jigsaw.w3.org/css-validator/check?uri=referer" id="validation_link_css">
-                <img src="https://jigsaw.w3.org/css-validator/images/vcss" alt="Valid CSS!" width="88" height="31">
-            </a>
-        </div>
-        <p><a href="../BeckfordInnovations.html">© Beckford Innovation 2025</a></p>
-    </footer>
-    
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="tables.html">Tables</a></li>
+        <!-- add additional footer navigation links as needed -->
+      </ul>
+    </nav>
+    <p>
+      <a href="https://validator.w3.org/">HTML Validation</a> |
+      <a href="https://jigsaw.w3.org/css-validator/">CSS Validation</a>
+    </p>
   </footer>
 </body>
 </html>
