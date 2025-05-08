@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>HTML Tables - Your Name</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>HTML Tables - Christian</title>
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -40,17 +40,19 @@
       text-align: left;
     }
 
-    thead tr, table tr:first-child {
+    /* Top row (inside thead) gets a darker background */
+    thead tr {
       background-color: #444;
       color: #fff;
     }
 
-    tr:nth-child(even) {
-      background-color: #f9f9f9;
-    }
-
-    tr:nth-child(odd) {
+    /* Use pseudo-classes to alternate row colors in tbody */
+    tbody tr:nth-child(odd) {
       background-color: #ffffff;
+    }
+    
+    tbody tr:nth-child(even) {
+      background-color: #f9f9f9;
     }
 
     figure {
@@ -65,155 +67,156 @@
     .validation {
       margin-top: 10px;
     }
+    footer {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #222;
+    color: white;
+    text-align: center;
+    font-size: 0.9em;
+}
+
+.link-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.link-list li {
+    display: inline-block;
+}
+
+.link-list a {
+    color: #bbb;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.link-list a:hover {
+    color: #fff;
+}
+
+.validation-icons {
+    margin-top: 10px;
+}
+
+.validation-icons img {
+    margin: 5px;
+}
+
   </style>
 </head>
 <body>
   <header>
-    <h1>ITIS 3135 - Your Name</h1>
+    <h1>ITIS 3135 - Christian</h1>
     <p>Learn to code with HTML tables</p>
     <nav>
       <a href="index.html">Home</a>
       <a href="tables.html">Tables</a>
-      <!-- Add other page links -->
     </nav>
   </header>
 
   <main>
     <h2>Activity #2 - HTML Tables</h2>
-
-    <h3>My Tabular Data</h3>
-    <ol>
-      <li>Luffy D. Monkey - luffy@onecode.com - 5</li>
-      <li>Nami R. Bell - nami@treasuremail.com - 3</li>
-      <li>Zoro S. Hunter - zoro@swordmail.net - 7</li>
-      <li>Sanji Vinsmoke - sanji@cookingcloud.com - 6</li>
-      <li>Robin Nico - robin@historynow.org - 4</li>
-      <li>Franky Cyborg - franky@shipwright.io - 8</li>
-      <li>Brook Soulman - brook@musicsail.org - 2</li>
-    </ol>
-
-    <h3>Employee Data in Simple Table</h3>
-    <table>
-      <tr>
-        <th id="name">Name</th>
-        <th id="email">Email</th>
-        <th id="years">Years of Service</th>
-      </tr>
-      <tr>
-        <td headers="name">Luffy D. Monkey</td>
-        <td headers="email">luffy@onecode.com</td>
-        <td headers="years">5</td>
-      </tr>
-      <tr>
-        <td headers="name">Nami R. Bell</td>
-        <td headers="email">nami@treasuremail.com</td>
-        <td headers="years">3</td>
-      </tr>
-      <tr>
-        <td headers="name">Zoro S. Hunter</td>
-        <td headers="email">zoro@swordmail.net</td>
-        <td headers="years">7</td>
-      </tr>
-      <tr>
-        <td headers="name">Sanji Vinsmoke</td>
-        <td headers="email">sanji@cookingcloud.com</td>
-        <td headers="years">6</td>
-      </tr>
-      <tr>
-        <td headers="name">Robin Nico</td>
-        <td headers="email">robin@historynow.org</td>
-        <td headers="years">4</td>
-      </tr>
-      <tr>
-        <td headers="name">Franky Cyborg</td>
-        <td headers="email">franky@shipwright.io</td>
-        <td headers="years">8</td>
-      </tr>
-      <tr>
-        <td headers="name">Brook Soulman</td>
-        <td headers="email">brook@musicsail.org</td>
-        <td headers="years">2</td>
-      </tr>
-    </table>
-
     <h3>Employee Data in Complex Table</h3>
     <figure>
       <figcaption>Employee Information - ONE CODE Team</figcaption>
       <table>
-        <tr>
-          <th>Category</th>
-          <th id="name">Name</th>
-          <th id="email">Email</th>
-          <th id="years">Years of Service</th>
-          <th id="salary">Monthly Salary</th>
-        </tr>
-        <tr>
-          <td rowspan="2">Captain</td>
-          <td headers="name">Luffy D. Monkey</td>
-          <td headers="email">luffy@onecode.com</td>
-          <td headers="years">5</td>
-          <td headers="salary">$5,000</td>
-        </tr>
-        <tr>
-          <td headers="name">Zoro S. Hunter</td>
-          <td headers="email">zoro@swordmail.net</td>
-          <td headers="years">7</td>
-          <td headers="salary">$4,500</td>
-        </tr>
-        <tr>
-          <td rowspan="2">Navigator</td>
-          <td headers="name">Nami R. Bell</td>
-          <td headers="email">nami@treasuremail.com</td>
-          <td headers="years">3</td>
-          <td headers="salary">$3,000</td>
-        </tr>
-        <tr>
-          <td headers="name">Robin Nico</td>
-          <td headers="email">robin@historynow.org</td>
-          <td headers="years">4</td>
-          <td headers="salary">$3,500</td>
-        </tr>
-        <tr>
-          <td rowspan="3">Support</td>
-          <td headers="name">Sanji Vinsmoke</td>
-          <td headers="email">sanji@cookingcloud.com</td>
-          <td headers="years">6</td>
-          <td headers="salary">$4,000</td>
-        </tr>
-        <tr>
-          <td headers="name">Franky Cyborg</td>
-          <td headers="email">franky@shipwright.io</td>
-          <td headers="years">8</td>
-          <td headers="salary">$4,200</td>
-        </tr>
-        <tr>
-          <td headers="name">Brook Soulman</td>
-          <td headers="email">brook@musicsail.org</td>
-          <td headers="years">2</td>
-          <td headers="salary">$2,800</td>
-        </tr>
-        <tr>
-          <th colspan="3">Total Years of Service</th>
-          <td>35</td>
-          <td>$27,000</td>
-        </tr>
+        <thead>
+          <tr>
+            <th scope="col">Category</th>
+            <th id="name" scope="col">Name</th>
+            <th id="email" scope="col">Email</th>
+            <th id="years" scope="col">Years of Service</th>
+            <th id="salary" scope="col">Monthly Salary</th>
+          </tr>
+        </thead>
+        <tbody>
+          <!-- Captain category with two employees (using rowspan) -->
+          <tr>
+            <td rowspan="2">Captain</td>
+            <td headers="name">Luffy D. Monkey</td>
+            <td headers="email">luffy@onecode.com</td>
+            <td headers="years">5</td>
+            <td headers="salary">$5,000</td>
+          </tr>
+          <tr>
+            <td headers="name">Zoro S. Hunter</td>
+            <td headers="email">zoro@swordmail.net</td>
+            <td headers="years">7</td>
+            <td headers="salary">$4,500</td>
+          </tr>
+          <!-- Navigator category with two employees -->
+          <tr>
+            <td rowspan="2">Navigator</td>
+            <td headers="name">Nami R. Bell</td>
+            <td headers="email">nami@treasuremail.com</td>
+            <td headers="years">3</td>
+            <td headers="salary">$3,000</td>
+          </tr>
+          <tr>
+            <td headers="name">Robin Nico</td>
+            <td headers="email">robin@historynow.org</td>
+            <td headers="years">4</td>
+            <td headers="salary">$3,500</td>
+          </tr>
+          <!-- Support category with three employees -->
+          <tr>
+            <td rowspan="3">Support</td>
+            <td headers="name">Sanji Vinsmoke</td>
+            <td headers="email">sanji@cookingcloud.com</td>
+            <td headers="years">6</td>
+            <td headers="salary">$4,000</td>
+          </tr>
+          <tr>
+            <td headers="name">Franky Cyborg</td>
+            <td headers="email">franky@shipwright.io</td>
+            <td headers="years">8</td>
+            <td headers="salary">$4,200</td>
+          </tr>
+          <tr>
+            <td headers="name">Brook Soulman</td>
+            <td headers="email">brook@musicsail.org</td>
+            <td headers="years">2</td>
+            <td headers="salary">$2,800</td>
+          </tr>
+          <!-- Bottom row with totals.
+               The first three cells are spanned by the header cell. -->
+          <tr>
+            <th colspan="3">Total Years of Service</th>
+            <td>35</td>
+            <td>$27,000</td>
+          </tr>
+        </tbody>
       </table>
     </figure>
   </main>
 
   <footer>
     <nav>
-      <a href="index.html">Home</a>
-      <a href="tables.html">Tables</a>
-      <!-- Repeat site links -->
-    </nav>
-    <div class="validation">
-      <p>
-        <a href="https://validator.w3.org/" target="_blank">HTML Validator</a> |
-        <a href="https://jigsaw.w3.org/css-validator/" target="_blank">CSS Validator</a>
-      </p>
-    </div>
-    <p>&copy; 2025 Your Name</p>
+      <footer>
+        <ul class="link-list">
+            <li><a href="/">CLT Web</a></li>
+            <li><a href="https://github.com/zairoscodes">GitHub</a></li>
+            <li><a href="https://github.com/zairoscodes/zairoscodes.io">GitHub.io Page</a></li>
+            <li><a href="https://www.freecodecamp.org/ChristianBCodes">FreeCodeCamp</a></li>
+            <li><a href="https://www.codecademy.com/profiles/Christianb.CODES">Codecademy</a></li>
+            <li><a href="https://www.linkedin.com/in/christian-beckford/">LinkedIn</a></li>
+        </ul>
+        <div class="validation-icons">
+            <a href="https://validator.w3.org/check?uri=referer" id="validation_link_html">
+                <img src="https://www.w3.org/Icons/valid-html401" alt="Valid HTML!" width="88" height="31">
+            </a>
+            <a href="https://jigsaw.w3.org/css-validator/check?uri=referer" id="validation_link_css">
+                <img src="https://jigsaw.w3.org/css-validator/images/vcss" alt="Valid CSS!" width="88" height="31">
+            </a>
+        </div>
+        <p><a href="../BeckfordInnovations.html">© Beckford Innovation 2025</a></p>
+    </footer>
+    
   </footer>
 </body>
 </html>
