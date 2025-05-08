@@ -2,152 +2,218 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Activity #2 - HTML Tables</title>
- 
-  <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
-  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>HTML Tables - Your Name</title>
   <style>
- 
     body {
-      font-family: sans-serif;
+      font-family: Arial, sans-serif;
       margin: 0;
       padding: 0;
     }
+
     header, footer {
-      background: #f4f4f4;
+      background-color: #333;
+      color: white;
       padding: 1em;
-    }
-    header nav ul, footer nav ul {
-      list-style-type: none;
-      padding: 0;
-    }
-    header nav ul li, footer nav ul li {
-      display: inline;
-      margin-right: 1em;
+      text-align: center;
     }
 
-    /* Table styling */
-    table {
-      border-collapse: collapse;
-      width: 100%;
-      margin-bottom: 2em;
+    nav a {
+      margin: 0 10px;
+      color: white;
+      text-decoration: none;
     }
+
+    main {
+      padding: 20px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 30px;
+    }
+
     th, td {
-      border: 1px solid #000;
-      padding: 8px;
+      padding: 10px;
+      border: 1px solid #999;
       text-align: left;
     }
-    thead th {
-      background-color: #ccc;
+
+    thead tr, table tr:first-child {
+      background-color: #444;
+      color: #fff;
     }
-    tbody tr:nth-child(even) {
-      background-color: #eee;
+
+    tr:nth-child(even) {
+      background-color: #f9f9f9;
     }
-    tbody tr:nth-child(odd) {
-      background-color: #fff;
+
+    tr:nth-child(odd) {
+      background-color: #ffffff;
+    }
+
+    figure {
+      margin: 0;
+    }
+
+    figcaption {
+      font-weight: bold;
+      margin-bottom: 10px;
+    }
+
+    .validation {
+      margin-top: 10px;
     }
   </style>
 </head>
 <body>
-  <!-- Standard Header -->
   <header>
-    <h1>ITIS 3135 - Christian Beckford</h1>
+    <h1>ITIS 3135 - Your Name</h1>
+    <p>Learn to code with HTML tables</p>
     <nav>
-      <ul>
-        <li><a href="index.html">Home</a></li>
-        
-      </ul>
+      <a href="index.html">Home</a>
+      <a href="tables.html">Tables</a>
+      <!-- Add other page links -->
     </nav>
   </header>
 
-  <!-- Main Content for Activity #2 -->
   <main>
     <h2>Activity #2 - HTML Tables</h2>
 
-    <!-- Part 3: Tabular Data as an Ordered List -->
     <h3>My Tabular Data</h3>
     <ol>
-      <li>Employee 1 — employee1@example.com — 1 year</li>
-      <li>Employee 2 — employee2@example.com — 2 years</li>
-      <li>Employee 3 — employee3@example.com — 3 years</li>
-      <li>Employee 4 — employee4@example.com — 4 years</li>
-      <li>Employee 5 — employee5@example.com — 5 years</li>
-      <li>Employee 6 — employee6@example.com — 6 years</li>
-      <li>Employee 7 — employee7@example.com — 7 years</li>
+      <li>Luffy D. Monkey - luffy@onecode.com - 5</li>
+      <li>Nami R. Bell - nami@treasuremail.com - 3</li>
+      <li>Zoro S. Hunter - zoro@swordmail.net - 7</li>
+      <li>Sanji Vinsmoke - sanji@cookingcloud.com - 6</li>
+      <li>Robin Nico - robin@historynow.org - 4</li>
+      <li>Franky Cyborg - franky@shipwright.io - 8</li>
+      <li>Brook Soulman - brook@musicsail.org - 2</li>
     </ol>
 
-    <!-- Part 3: Employee Data in Simple Table -->
     <h3>Employee Data in Simple Table</h3>
     <table>
-      <thead>
-        <tr>
-          <th scope="col">Name</th>
-          <th scope="col">Email</th>
-          <th scope="col">Years of Service</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr>
-          <td>Employee 1</td>
-          <td>employee1@example.com</td>
-          <td>1</td>
-        </tr>
-        <tr>
-          <td>Employee 2</td>
-          <td>employee2@example.com</td>
-          <td>2</td>
-        </tr>
-        <tr>
-          <td>Employee 3</td>
-          <td>employee3@example.com</td>
-          <td>3</td>
-        </tr>
-        <tr>
-          <td>Employee 4</td>
-          <td>employee4@example.com</td>
-          <td>4</td>
-        </tr>
-        <tr>
-          <td>Employee 5</td>
-          <td>employee5@example.com</td>
-          <td>5</td>
-        </tr>
-        <tr>
-          <td>Employee 6</td>
-          <td>employee6@example.com</td>
-          <td>6</td>
-        </tr>
-        <tr>
-          <td>Employee 7</td>
-          <td>employee7@example.com</td>
-          <td>7</td>
-        </tr>
-      </tbody>
+      <tr>
+        <th id="name">Name</th>
+        <th id="email">Email</th>
+        <th id="years">Years of Service</th>
+      </tr>
+      <tr>
+        <td headers="name">Luffy D. Monkey</td>
+        <td headers="email">luffy@onecode.com</td>
+        <td headers="years">5</td>
+      </tr>
+      <tr>
+        <td headers="name">Nami R. Bell</td>
+        <td headers="email">nami@treasuremail.com</td>
+        <td headers="years">3</td>
+      </tr>
+      <tr>
+        <td headers="name">Zoro S. Hunter</td>
+        <td headers="email">zoro@swordmail.net</td>
+        <td headers="years">7</td>
+      </tr>
+      <tr>
+        <td headers="name">Sanji Vinsmoke</td>
+        <td headers="email">sanji@cookingcloud.com</td>
+        <td headers="years">6</td>
+      </tr>
+      <tr>
+        <td headers="name">Robin Nico</td>
+        <td headers="email">robin@historynow.org</td>
+        <td headers="years">4</td>
+      </tr>
+      <tr>
+        <td headers="name">Franky Cyborg</td>
+        <td headers="email">franky@shipwright.io</td>
+        <td headers="years">8</td>
+      </tr>
+      <tr>
+        <td headers="name">Brook Soulman</td>
+        <td headers="email">brook@musicsail.org</td>
+        <td headers="years">2</td>
+      </tr>
     </table>
+
+    <h3>Employee Data in Complex Table</h3>
+    <figure>
+      <figcaption>Employee Information - ONE CODE Team</figcaption>
+      <table>
+        <tr>
+          <th>Category</th>
+          <th id="name">Name</th>
+          <th id="email">Email</th>
+          <th id="years">Years of Service</th>
+          <th id="salary">Monthly Salary</th>
+        </tr>
+        <tr>
+          <td rowspan="2">Captain</td>
+          <td headers="name">Luffy D. Monkey</td>
+          <td headers="email">luffy@onecode.com</td>
+          <td headers="years">5</td>
+          <td headers="salary">$5,000</td>
+        </tr>
+        <tr>
+          <td headers="name">Zoro S. Hunter</td>
+          <td headers="email">zoro@swordmail.net</td>
+          <td headers="years">7</td>
+          <td headers="salary">$4,500</td>
+        </tr>
+        <tr>
+          <td rowspan="2">Navigator</td>
+          <td headers="name">Nami R. Bell</td>
+          <td headers="email">nami@treasuremail.com</td>
+          <td headers="years">3</td>
+          <td headers="salary">$3,000</td>
+        </tr>
+        <tr>
+          <td headers="name">Robin Nico</td>
+          <td headers="email">robin@historynow.org</td>
+          <td headers="years">4</td>
+          <td headers="salary">$3,500</td>
+        </tr>
+        <tr>
+          <td rowspan="3">Support</td>
+          <td headers="name">Sanji Vinsmoke</td>
+          <td headers="email">sanji@cookingcloud.com</td>
+          <td headers="years">6</td>
+          <td headers="salary">$4,000</td>
+        </tr>
+        <tr>
+          <td headers="name">Franky Cyborg</td>
+          <td headers="email">franky@shipwright.io</td>
+          <td headers="years">8</td>
+          <td headers="salary">$4,200</td>
+        </tr>
+        <tr>
+          <td headers="name">Brook Soulman</td>
+          <td headers="email">brook@musicsail.org</td>
+          <td headers="years">2</td>
+          <td headers="salary">$2,800</td>
+        </tr>
+        <tr>
+          <th colspan="3">Total Years of Service</th>
+          <td>35</td>
+          <td>$27,000</td>
+        </tr>
+      </table>
+    </figure>
   </main>
 
   <footer>
-    <ul class="link-list">
-      <li><a href="/">CLT Web</a></li>
-      <li><a href="https://github.com/zairoscodes">GitHub</a></li>
-      <li><a href="https://github.com/zairoscodes/zairoscodes.io">GitHub.io Page</a></li>
-      <li><a href="https://www.freecodecamp.org/ChristianBCodes">FreeCodeCamp</a></li>
-      <li><a href="https://www.codecademy.com/profiles/Christianb.CODES">Codecademy</a></li>
-      <li><a href="https://www.linkedin.com/in/christian-beckford/">LinkedIn</a></li>
-      <li>
-        <a href="https://validator.w3.org/check?uri=referer" id="validation_link_html">
-          <img style="border:0;width:88px;height:31px" src="https://www.w3.org/Icons/valid-html401" alt="Valid HTML!">
-        </a>
-      </li>
-      <li>
-        <a href="https://jigsaw.w3.org/css-validator/check/referer" id="validation_link_css">
-          <img style="border:0;width:88px;height:31px" src="https://jigsaw.w3.org/css-validator/images/vcss" alt="Valid CSS!">
-        </a>
-      </li>
-     
-    <p><a href="..BeckfordInnovations.html"> @ Beckford Innovation 2025</a></p>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="tables.html">Tables</a>
+      <!-- Repeat site links -->
+    </nav>
+    <div class="validation">
+      <p>
+        <a href="https://validator.w3.org/" target="_blank">HTML Validator</a> |
+        <a href="https://jigsaw.w3.org/css-validator/" target="_blank">CSS Validator</a>
+      </p>
+    </div>
+    <p>&copy; 2025 Your Name</p>
   </footer>
-  
 </body>
 </html>
