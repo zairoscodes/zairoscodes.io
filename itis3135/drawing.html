@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Interactive Drawing with p5.js</title>
+    <script src="https://lint.page/kit/4d0fe3.js" crossorigin="anonymous"></script>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -50,7 +51,48 @@
             background-color: #333;
             color: white;
         }
+        footer {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #222;
+    color: white;
+    text-align: center;
+    font-size: 0.9em;
+}
+
+.link-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+.link-list li {
+    display: inline-block;
+}
+
+.link-list a {
+    color: #bbb;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.link-list a:hover {
+    color: #fff;
+}
+
+.validation-icons {
+    margin-top: 10px;
+}
+
+.validation-icons img {
+    margin: 5px;
+}
+
     </style>
+     
 </head>
 <body>
     <header>
@@ -70,22 +112,24 @@
     </main>
 
     <footer>
-        <ul>
-            <a href="/">CLT Web</a>
-            <a href="https://github.com/zairoscodes">GitHub</a>
-            <a href="https://github.com/zairoscodes/zairoscodes.io">GitHub.io Page</a>
-            <a href="https://www.freecodecamp.org/ChristianBCodes">FreeCodeCamp</a>
-            <a href="https://www.codecademy.com/profiles/Christianb.CODES">Codecademy</a>
-            <a href="https://www.linkedin.com/in/christian-beckford/">LinkedIn</a>
+        <ul class="link-list">
+            <li><a href="/">CLT Web</a></li>
+            <li><a href="https://github.com/zairoscodes">GitHub</a></li>
+            <li><a href="https://github.com/zairoscodes/zairoscodes.io">GitHub.io Page</a></li>
+            <li><a href="https://www.freecodecamp.org/ChristianBCodes">FreeCodeCamp</a></li>
+            <li><a href="https://www.codecademy.com/profiles/Christianb.CODES">Codecademy</a></li>
+            <li><a href="https://www.linkedin.com/in/christian-beckford/">LinkedIn</a></li>
+        </ul>
+        <div class="validation-icons">
             <a href="https://validator.w3.org/check?uri=referer" id="validation_link_html">
-                <img style="border:0;width:88px;height:31px" src="https://mytienhoang.github.io/itis3135/z_archives/">
-              </a>
-              <a href="https://jigsaw.w3.org/css-validator/check/referer" id="validation_link_css">
-                <img style="border:0;width:88px;height:31px" src="https://jigsaw.w3.org/css-validator/images/vcss">
-              </a>
-              
-          </ul>
-          <p><a href="firm.html"> @ Beckford Innovation 2025</a></p>
+                <img src="https://www.w3.org/Icons/valid-html401" alt="Valid HTML!" width="88" height="31">
+            </a>
+            <a href="https://jigsaw.w3.org/css-validator/check?uri=referer" id="validation_link_css">
+                <img src="https://jigsaw.w3.org/css-validator/images/vcss" alt="Valid CSS!" width="88" height="31">
+            </a>
+        </div>
+        <p><a href="../BeckfordInnovations.html">© Beckford Innovation 2025</a></p>
     </footer>
-</body>
+    
+ 
 </html>
